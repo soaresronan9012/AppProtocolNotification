@@ -7,8 +7,16 @@
 
 import UIKit
 
+protocol VCScreenButtonProtocol : AnyObject {  // cria um Protocolo de Delegação para comunicar com o ViewController
+    func tappedSelectButton() // método do protocolo, irá ser chamado na viewcontroller
+    }
 class VCScreen: UIView {
     
+    private weak var delegateButton : VCScreenButtonProtocol?  // delegate  será qualquer classe que implementar o protocolo / propriedade do tipo delegate optional
+    public func delegate( delegate: VCScreenButtonProtocol? ){ // o parametro dessa funcao, sera o delegado enviado para a private weak delegate
+        self.delegateButton = delegate// parametro
+        }
+
     lazy var appleUIImage : UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -32,7 +40,7 @@ class VCScreen: UIView {
     }()
     @objc func tappetButtonSelectButton( _ sender: UIButton){ // método invocado pela acao do botao
         print(#function)
-        //delegate?.tappedLoginButton() // ao clicar no botao, o delegado vai chamar o metodo do protocol
+        delegateButton?.tappedSelectButton() // ao clicar no botao, o delegado vai chamar o metodo do protocol
                     }
     
     
