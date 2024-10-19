@@ -20,7 +20,8 @@ class VCScreen: UIView {
     lazy var appleUIImage : UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(named: "apple-svgrepo-com" )
+        image.image = UIImage(named: "apple-svgrepo-com" )?.withRenderingMode(.alwaysTemplate) // habilita a troca de cor da imagem
+        image.tintColor = .black // troca a cor da imagem
         return image
     }()
     
@@ -54,8 +55,9 @@ class VCScreen: UIView {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError("init(coder:) has not been implemented")//inicializador necessário para qualquer classe que herda de NSObject ou UIView. Ele é usado quando um objeto é criado a partir de um arquivo de interface (nib ou storyboard).
     }
+    
     
     private func addElements () { // método para invocar os elementos para a view
         addSubview(appleUIImage)

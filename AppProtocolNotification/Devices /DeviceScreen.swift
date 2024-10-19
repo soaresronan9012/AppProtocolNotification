@@ -7,7 +7,19 @@
 
 import UIKit
 
+protocol macbookProtocol : AnyObject {  // protocolo Label conta
+    func macbookTappedProtocol()
+    // método do protocolo, irá ser chamado na viewcontroller
+    }
+
 class DeviceScreen: UIView {
+    
+    private weak var delegatemacbook : macbookProtocol? // do tipo protocol
+         // delegate  será qualquer classe que implementar o protocolo / propriedade do tipo delegate optional
+    public func delegatemacbookfunc( delegate: macbookProtocol? ){ // o parametro dessa funcao, sera o delegado, usado na viewcontroller alvo
+        self.delegatemacbook = delegate// parametro
+            }
+        
     
     lazy var titleLabel : UILabel = {
         let text = UILabel()
@@ -23,8 +35,19 @@ class DeviceScreen: UIView {
         let mac = UIImageView()
         mac.translatesAutoresizingMaskIntoConstraints = false
         mac.image = UIImage(named: "laptop-macbook-svgrepo-com" )
+        mac.isUserInteractionEnabled = true // habilita interacao do usuário
         return mac
     }()
+    private func setupGestureRecognizer() { // Método setupGestureRecognizer: Cria e configura o UITapGestureRecognizer para detectar toques na label.
+            //precisa pois habilitou toque na label
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(macbookImageTapped))
+        macImageView.addGestureRecognizer(tapGesture)
+                }
+        @objc private func macbookImageTapped() { // acao invocada ao ser clicada
+            print("imagem macbook clicada!")
+            delegatemacbook?.macbookTappedProtocol() // método do protocolo
+        }
+    
     
     lazy var imacImageView : UIImageView = {
         let imac = UIImageView()
@@ -42,7 +65,7 @@ class DeviceScreen: UIView {
     
     
     override init ( frame: CGRect){ //Define um parâmetro chamado frame do tipo CGRect. Um CGRect representa um retângulo e define a posição e o tamanho da view na tela.
-        super.init(frame: frame)//Chama o inicializador da classe pai, passando o mesmo frame que foi passado para o inicializador da nossa classe.
+        super.init(frame: frame)//inicializador pai, passa mesmo frame passado para o inicializador da nossa classe.
         backgroundColor = .systemGray6
         addElements()
         configConstraints()
