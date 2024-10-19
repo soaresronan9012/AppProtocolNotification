@@ -7,10 +7,20 @@
 
 import UIKit
 
-protocol macbookProtocol : AnyObject {  // protocolo Label conta
+protocol macbookProtocol : AnyObject {  // protocolo macbookimage conta
     func macbookTappedProtocol()
     // método do protocolo, irá ser chamado na viewcontroller
     }
+
+protocol imacbookProtocol : AnyObject {  // protocolo imacimage conta
+    func imacbookTappedProtocol()
+    // método do protocolo, irá ser chamado na viewcontroller
+    }
+
+protocol iphoneProtocol : AnyObject {
+    func iphoneTappedProtocol()
+}
+
 
 class DeviceScreen: UIView {
     
@@ -19,7 +29,16 @@ class DeviceScreen: UIView {
     public func delegatemacbookfunc( delegate: macbookProtocol? ){ // o parametro dessa funcao, sera o delegado, usado na viewcontroller alvo
         self.delegatemacbook = delegate// parametro
             }
+    
+    private weak var delegateimacbook : imacbookProtocol?
+    public func delegateimacbookfunc( delegate: imacbookProtocol? ){
+        self.delegateimacbook = delegate
+    }
         
+    private weak var delegateiphone : iphoneProtocol?
+    public func delegateiphonefunc( delegate: iphoneProtocol? ){
+        self.delegateiphone = delegate
+    }
     
     lazy var titleLabel : UILabel = {
         let text = UILabel()
@@ -60,7 +79,8 @@ class DeviceScreen: UIView {
         imacImageView.addGestureRecognizer(tapGesture)
     }
     @objc private func imacImageTapped() {
-        print("imagem imac clicada!")
+        print("imac clicada!")
+        delegateimacbook?.imacbookTappedProtocol()
         
     }
     
@@ -69,8 +89,17 @@ class DeviceScreen: UIView {
         let iphone = UIImageView()
         iphone.translatesAutoresizingMaskIntoConstraints = false
         iphone.image = UIImage(named: "iphone-svgrepo-com" )
+        iphone.isUserInteractionEnabled = true
         return iphone
     }()
+    private func setupGestureRecognizeriphone() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(iphoneImageTapped))
+        iphoneImageView.addGestureRecognizer(tapGesture)
+    }
+    @objc private func iphoneImageTapped() {
+        print("iphone clicada!")
+        delegateiphone?.iphoneTappedProtocol()
+    }
     
     
     override init ( frame: CGRect){ //Define um parâmetro chamado frame do tipo CGRect. Um CGRect representa um retângulo e define a posição e o tamanho da view na tela.
@@ -79,6 +108,8 @@ class DeviceScreen: UIView {
         addElements()
         configConstraints()
         setupGestureRecognizer()
+        setupGestureRecognizerimac()
+        setupGestureRecognizeriphone()
     }
     
     

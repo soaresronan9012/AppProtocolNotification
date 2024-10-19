@@ -68,10 +68,10 @@ class VCScreen: UIView {
             NSLayoutConstraint.activate([ // essa configuracao é para cobrir toda a view
                 appleUIImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 180),
                 appleUIImage.centerXAnchor.constraint(equalTo: centerXAnchor),
-                appleUIImage.heightAnchor.constraint(equalToConstant: 150),
-                appleUIImage.widthAnchor.constraint(equalToConstant: 150),
+                appleUIImage.heightAnchor.constraint(equalToConstant: 200),
+                appleUIImage.widthAnchor.constraint(equalToConstant: 200),
                 
-                buttonSelectButton.topAnchor.constraint(equalTo: appleUIImage.bottomAnchor, constant: 55),
+                buttonSelectButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -105),
                 buttonSelectButton.centerXAnchor.constraint(equalTo: centerXAnchor),
                 buttonSelectButton.widthAnchor.constraint(equalToConstant: 100),
                 buttonSelectButton.heightAnchor.constraint(equalToConstant: 32),

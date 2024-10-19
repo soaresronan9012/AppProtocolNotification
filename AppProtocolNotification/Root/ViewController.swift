@@ -23,9 +23,10 @@ class ViewController: UIViewController, VCScreenButtonProtocol {
     
     
     func tappedSelectButton(){
-        let device = DeviceVC() // instancia a class alvo
-        device.modalPresentationStyle = .pageSheet // customizacao do tamanho de tela
-        present(device, animated: true ,completion: nil) // invoca o método
+        let device  : DeviceVC = DeviceVC() // instancia a class alvo
+        device.modalPresentationStyle = .formSheet // customizacao do tamanho de tela
+        //present(device, animated: true ,completion: nil) // invoca o método
+        navigationController?.pushViewController(device, animated: true)
                     }
     
 }

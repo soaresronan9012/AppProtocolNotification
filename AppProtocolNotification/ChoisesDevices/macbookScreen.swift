@@ -7,7 +7,18 @@
 
 import UIKit
 
+protocol macbookScreenButtonProtocol : AnyObject {  // cria um Protocolo de Delegação para comunicar com o ViewController
+    func tappedReturnButtonProtocol() // método do protocolo, irá ser chamado na viewcontroller
+    }
+
+
 class macbookScreen: UIView {
+    
+    
+    private weak var delegateReturnButton : macbookScreenButtonProtocol?  // delegate  será qualquer classe que implementar o protocolo / propriedade do tipo delegate optional
+    public func delegateReturnButtonFunc( delegate: macbookScreenButtonProtocol? ){ // o parametro dessa funcao, sera o delegado enviado para a private weak delegate
+        self.delegateReturnButton = delegate// parametro
+        }
     
     lazy var macbookImage: UIImageView = {
         let macbook = UIImageView()
@@ -28,6 +39,26 @@ class macbookScreen: UIView {
         
     }()
     
+    lazy var buttonReturntButton : UIButton = {
+        let bt = UIButton()
+        bt.translatesAutoresizingMaskIntoConstraints = false
+        bt.setTitle("Return", for: .normal) // texto do botao
+        bt.titleLabel?.font = UIFont.systemFont(ofSize: 18)// tamanho da fonte
+        bt.setTitleColor(.black, for: .normal)
+        bt.backgroundColor = UIColor.systemGray5 // cor com transparencia
+        bt.layer.cornerRadius = 10 // angulo das bordas
+        bt.clipsToBounds = true // habilita bordas arredondadas
+        bt.layer.borderWidth = 1.0// largura borda
+        bt.layer.borderColor = UIColor.black.cgColor // cor da borda
+        bt.addTarget(self, action: #selector(tappetReturnButton), for: .touchUpInside)
+        return  bt
+    }()
+    @objc func tappetReturnButton( _ sender: UIButton){ // método invocado pela acao do botao
+        print(#function)
+        delegateReturnButton?.tappedReturnButtonProtocol()
+    }
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .systemGray5
@@ -44,6 +75,7 @@ class macbookScreen: UIView {
     private func addElements () { // método para invocar os elementos para a view
         addSubview(macbookImage)
         addSubview(macbooklabel)
+        addSubview(buttonReturntButton)
     }
     
     private func configConstraints () {
@@ -59,8 +91,13 @@ class macbookScreen: UIView {
             macbookImage.heightAnchor.constraint(equalToConstant: 200),
             macbookImage.widthAnchor.constraint(equalToConstant: 200),
             
+            buttonReturntButton.topAnchor.constraint(equalTo: macbookImage.bottomAnchor, constant: 55),
+            buttonReturntButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            buttonReturntButton.widthAnchor.constraint(equalToConstant: 100),
+            buttonReturntButton.heightAnchor.constraint(equalToConstant: 32),
             
-        ])}
+        ])
+    }
     
 }
 

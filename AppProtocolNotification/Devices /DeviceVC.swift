@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DeviceVC: UIViewController, macbookProtocol {
+class DeviceVC: UIViewController, macbookProtocol, imacbookProtocol, iphoneProtocol {
     
     var screen : DeviceScreen? // var do tipo da view apontada
     
@@ -20,7 +20,8 @@ class DeviceVC: UIViewController, macbookProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         screen?.delegatemacbookfunc(delegate: self)
-        
+        screen?.delegateimacbookfunc(delegate: self)
+        screen?.delegateiphonefunc(delegate: self)
     }
     
     
@@ -28,6 +29,18 @@ class DeviceVC: UIViewController, macbookProtocol {
         let macbook = macbookVC() // instancia a class alvo
         macbook.modalPresentationStyle = .pageSheet // customizacao do tamanho de tela
         present(macbook, animated: true ,completion: nil) // invoca o método
+    }
+    
+    func imacbookTappedProtocol() {
+        let imac = imacVC()
+        imac.modalPresentationStyle = .pageSheet
+        present(imac, animated: true ,completion: nil)
+    }
+    
+    func iphoneTappedProtocol() {
+        let iphone = iphoneVC()
+        iphone.modalPresentationStyle = .pageSheet
+        present(iphone, animated: true ,completion: nil)
     }
                     
     
