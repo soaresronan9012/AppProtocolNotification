@@ -14,7 +14,6 @@ class DeviceVC: UIViewController, macbookProtocol {
     override func loadView() { // sempre que se cria uma nova view
         screen = DeviceScreen() // instancia a view apontada
         view = screen
-       
     }
 
     
@@ -23,6 +22,7 @@ class DeviceVC: UIViewController, macbookProtocol {
         screen?.delegatemacbookfunc(delegate: self)
         
     }
+    
     
     func macbookTappedProtocol(){
         let macbook = macbookVC() // instancia a class alvo

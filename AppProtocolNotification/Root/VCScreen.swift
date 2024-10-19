@@ -31,7 +31,7 @@ class VCScreen: UIView {
         bt.setTitle("Enter", for: .normal) // texto do botao
         bt.titleLabel?.font = UIFont.systemFont(ofSize: 18)// tamanho da fonte
         bt.setTitleColor(.black, for: .normal)
-        bt.backgroundColor = UIColor.white // cor com transparencia
+        bt.backgroundColor = UIColor.systemGray5 // cor com transparencia
         bt.layer.cornerRadius = 10 // angulo das bordas
         bt.clipsToBounds = true // habilita bordas arredondadas
         bt.layer.borderWidth = 1.0// largura borda
@@ -47,7 +47,7 @@ class VCScreen: UIView {
     
     override init ( frame: CGRect){
         super.init(frame: frame)
-        backgroundColor = .systemGray6
+        backgroundColor = .systemGray5
         addElements()
         configConstraints()
         

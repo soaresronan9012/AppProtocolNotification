@@ -38,8 +38,7 @@ class DeviceScreen: UIView {
         mac.isUserInteractionEnabled = true // habilita interacao do usuário
         return mac
     }()
-    private func setupGestureRecognizer() { // Método setupGestureRecognizer: Cria e configura o UITapGestureRecognizer para detectar toques na label.
-            //precisa pois habilitou toque na label
+    private func setupGestureRecognizer() {
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(macbookImageTapped))
         macImageView.addGestureRecognizer(tapGesture)
                 }
@@ -53,8 +52,18 @@ class DeviceScreen: UIView {
         let imac = UIImageView()
         imac.translatesAutoresizingMaskIntoConstraints = false
         imac.image = UIImage(named: "imac-svgrepo-com" )
+        imac.isUserInteractionEnabled = true
         return imac
     }()
+    private func setupGestureRecognizerimac() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imacImageTapped))
+        imacImageView.addGestureRecognizer(tapGesture)
+    }
+    @objc private func imacImageTapped() {
+        print("imagem imac clicada!")
+        
+    }
+    
     
     lazy var iphoneImageView : UIImageView = {
         let iphone = UIImageView()
@@ -66,9 +75,10 @@ class DeviceScreen: UIView {
     
     override init ( frame: CGRect){ //Define um parâmetro chamado frame do tipo CGRect. Um CGRect representa um retângulo e define a posição e o tamanho da view na tela.
         super.init(frame: frame)//inicializador pai, passa mesmo frame passado para o inicializador da nossa classe.
-        backgroundColor = .systemGray6
+        backgroundColor = .systemGray5
         addElements()
         configConstraints()
+        setupGestureRecognizer()
     }
     
     

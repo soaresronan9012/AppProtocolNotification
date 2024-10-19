@@ -30,7 +30,7 @@ class macbookScreen: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .systemGray6
+        backgroundColor = .systemGray5
         addElements()
         configConstraints()
     }
@@ -49,8 +49,10 @@ class macbookScreen: UIView {
     private func configConstraints () {
         NSLayoutConstraint.activate([
             
-            macbooklabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 60),
+            macbooklabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 90),
             macbooklabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            macbooklabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
+            macbooklabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
             
             macbookImage.topAnchor.constraint(equalTo: macbooklabel.bottomAnchor, constant: 60),
             macbookImage.centerXAnchor.constraint(equalTo: centerXAnchor),
