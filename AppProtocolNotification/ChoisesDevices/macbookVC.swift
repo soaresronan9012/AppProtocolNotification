@@ -26,9 +26,9 @@ class macbookVC: UIViewController, macbookScreenButtonProtocol {
     
     
     func tappedReturnButtonProtocol() {
-        let device = DeviceVC() // instancia a class alvo
-        device.modalPresentationStyle = .pageSheet // customizacao do tamanho de tela
-        present(device, animated: true ,completion: nil) // invoca o método
+        dismiss(animated: true, completion: nil)        //let device = DeviceVC() // instancia a class alvo
+        //device.modalPresentationStyle = .pageSheet // customizacao do tamanho de tela
+        //present(device, animated: true ,completion: nil) // invoca o método
     }
 
 }

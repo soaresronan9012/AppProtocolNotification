@@ -56,6 +56,7 @@ class macbookScreen: UIView {
     @objc func tappetReturnButton( _ sender: UIButton){ // método invocado pela acao do botao
         print(#function)
         delegateReturnButton?.tappedReturnButtonProtocol()
+        
     }
     
     
