@@ -7,7 +7,7 @@
 
 import UIKit
 
-class imacVC: UIViewController {
+class imacVC: UIViewController, imacbookScreenButtonProtocol { // extende para o tipo de protocol
 
     var screen : imacScreen?
     
@@ -18,8 +18,14 @@ class imacVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        screen?.delegateReturnButtonFuncImac(delegate: self) // passa a view como parametro dessa func do protocol
+            
+        }
 
-        // Do any additional setup after loading the view.
+    
+    func tappedReturnButtonProtocolimac() {  // metodo do protocolo
+        dismiss(animated: true, completion: nil)
+        //só funciona em viewController
     }
     
 

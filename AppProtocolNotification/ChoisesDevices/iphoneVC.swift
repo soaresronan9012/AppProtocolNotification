@@ -7,7 +7,7 @@
 
 import UIKit
 
-class iphoneVC: UIViewController {
+class iphoneVC: UIViewController, iphonebookScreenButtonProtocol {
 
     var screen : iphoneScreen?
     
@@ -18,10 +18,14 @@ class iphoneVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        screen?.delegateReturnButtonFuncIphone( delegate: self)
+            
+        }
 
         
+    func tappedReturnButtonProtocoliphone() {
+        dismiss( animated: true, completion: nil)
     }
-    
 
     
 }
