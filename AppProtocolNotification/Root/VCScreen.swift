@@ -26,7 +26,7 @@ class VCScreen: UIView {
     }()
     
     lazy var buttonSelectButton : UIButton = {
-        let bt = UIButton()
+        let bt = UIButton() // (type: .system) , ja tem um padrao estabelecido do sistema
         bt.translatesAutoresizingMaskIntoConstraints = false
         bt.setTitle("Enter", for: .normal) // texto do botao
         bt.titleLabel?.font = UIFont.systemFont(ofSize: 18)// tamanho da fonte

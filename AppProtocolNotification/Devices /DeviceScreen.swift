@@ -21,7 +21,9 @@ protocol iphoneProtocol : AnyObject {
     func iphoneTappedProtocol()
 }
 
-
+protocol ipadProtocol : AnyObject {
+    func ipadTappedProtocol()
+}
 class DeviceScreen: UIView {
     
     private weak var delegatemacbook : macbookProtocol? // do tipo protocol
@@ -39,6 +41,12 @@ class DeviceScreen: UIView {
     public func delegateiphonefunc( delegate: iphoneProtocol? ){
         self.delegateiphone = delegate
     }
+    
+    private weak var delegateipad : ipadProtocol?
+    public func delegateipadfunc( delegate: ipadProtocol? ){
+        self.delegateipad = delegate
+    }
+    
     
     lazy var titleLabel : UILabel = {
         let text = UILabel()
@@ -101,6 +109,21 @@ class DeviceScreen: UIView {
         delegateiphone?.iphoneTappedProtocol()
     }
     
+    lazy var ipadImageView : UIImageView = {
+        let ipad = UIImageView()
+        ipad.translatesAutoresizingMaskIntoConstraints = false
+        ipad.image = UIImage(named: "appstore copy 2" )
+        ipad.isUserInteractionEnabled = true
+        return ipad
+    }()
+    private func setupGestureRecognizeripad() {
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ipadImageTapped))
+        ipadImageView.addGestureRecognizer(tapGesture)
+                }
+        @objc private func ipadImageTapped() { // acao invocada ao ser clicada
+            print("imagem macbook clicada!")
+            delegateipad?.ipadTappedProtocol() // método do protocolo
+        }
     
     override init ( frame: CGRect){ //Define um parâmetro chamado frame do tipo CGRect. Um CGRect representa um retângulo e define a posição e o tamanho da view na tela.
         super.init(frame: frame)//inicializador pai, passa mesmo frame passado para o inicializador da nossa classe.
@@ -110,6 +133,7 @@ class DeviceScreen: UIView {
         setupGestureRecognizer()
         setupGestureRecognizerimac()
         setupGestureRecognizeriphone()
+        setupGestureRecognizeripad()
     }
     
     
@@ -126,6 +150,7 @@ class DeviceScreen: UIView {
         addSubview(macImageView)
         addSubview(imacImageView)
         addSubview(iphoneImageView)
+        addSubview(ipadImageView)
         
         
     }
@@ -136,19 +161,24 @@ class DeviceScreen: UIView {
                 titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 60),
                 titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
                 
-                macImageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 80),
+                macImageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 60),
                 macImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
                 macImageView.heightAnchor.constraint(equalToConstant: 100),
                 macImageView.widthAnchor.constraint(equalToConstant: 100),
                 
-                imacImageView.topAnchor.constraint(equalTo: macImageView.bottomAnchor, constant: 60),
+                imacImageView.topAnchor.constraint(equalTo: macImageView.bottomAnchor, constant: 50),
                 imacImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
                 imacImageView.heightAnchor.constraint(equalToConstant: 100),
                 imacImageView.widthAnchor.constraint(equalToConstant: 100),
                 
-                iphoneImageView.topAnchor.constraint(equalTo: imacImageView.bottomAnchor, constant: 60),
+                iphoneImageView.topAnchor.constraint(equalTo: imacImageView.bottomAnchor, constant: 50),
                 iphoneImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
                 iphoneImageView.heightAnchor.constraint(equalToConstant: 100),
                 iphoneImageView.widthAnchor.constraint(equalToConstant: 100),
+                
+                ipadImageView.topAnchor.constraint(equalTo: iphoneImageView.bottomAnchor, constant: 50),
+                ipadImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+                ipadImageView.heightAnchor.constraint(equalToConstant: 100),
+                ipadImageView.widthAnchor.constraint(equalToConstant: 100),
                 ]) }
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DeviceVC: UIViewController, macbookProtocol, imacbookProtocol, iphoneProtocol {
+class DeviceVC: UIViewController, macbookProtocol, imacbookProtocol, iphoneProtocol, ipadProtocol {
     
     var screen : DeviceScreen? // var do tipo da view apontada
     
@@ -22,6 +22,7 @@ class DeviceVC: UIViewController, macbookProtocol, imacbookProtocol, iphoneProto
         screen?.delegatemacbookfunc(delegate: self)
         screen?.delegateimacbookfunc(delegate: self)
         screen?.delegateiphonefunc(delegate: self)
+        screen?.delegateipadfunc(delegate: self)
     }
     
     
@@ -41,6 +42,12 @@ class DeviceVC: UIViewController, macbookProtocol, imacbookProtocol, iphoneProto
         let iphone = iphoneVC()
         iphone.modalPresentationStyle = .pageSheet
         present(iphone, animated: true ,completion: nil)
+    }
+    
+    func ipadTappedProtocol() {
+        let ipad = ipadVC()
+        ipad.modalPresentationStyle = .pageSheet
+        present(ipad, animated: true ,completion: nil)
     }
                     
     
