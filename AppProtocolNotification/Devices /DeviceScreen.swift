@@ -112,14 +112,15 @@ class DeviceScreen: UIView {
     lazy var ipadImageView : UIImageView = {
         let ipad = UIImageView()
         ipad.translatesAutoresizingMaskIntoConstraints = false
-        ipad.image = UIImage(named: "appstore copy 2" )
-        ipad.isUserInteractionEnabled = true
+        ipad.image = UIImage(named: "appstore copy 3" )
+        ipad.isUserInteractionEnabled = true // habilita toque na imagem
         return ipad
     }()
-    private func setupGestureRecognizeripad() {
+    private func setupGestureRecognizeripad() { // metodo padrao de click habilitado em imagens e views
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ipadImageTapped))
-        ipadImageView.addGestureRecognizer(tapGesture)
+            ipadImageView.addGestureRecognizer(tapGesture)
                 }
+    
         @objc private func ipadImageTapped() { // acao invocada ao ser clicada
             print("imagem macbook clicada!")
             delegateipad?.ipadTappedProtocol() // método do protocolo
@@ -139,8 +140,7 @@ class DeviceScreen: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-        
-    }
+        }
     
     
     
@@ -151,14 +151,13 @@ class DeviceScreen: UIView {
         addSubview(imacImageView)
         addSubview(iphoneImageView)
         addSubview(ipadImageView)
-        
-        
-    }
+        }
+    
     
     private func configConstraints () {
             NSLayoutConstraint.activate([ // essa configuracao é para cobrir toda a view
                 
-                titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 60),
+                titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 50),
                 titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
                 
                 macImageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 60),
