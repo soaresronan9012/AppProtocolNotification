@@ -160,7 +160,7 @@ class DeviceScreen: UIView {
                 titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 50),
                 titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
                 
-                macImageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 60),
+                macImageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 50),
                 macImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
                 macImageView.heightAnchor.constraint(equalToConstant: 100),
                 macImageView.widthAnchor.constraint(equalToConstant: 100),

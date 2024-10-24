@@ -30,12 +30,17 @@ class DeviceVC: UIViewController, macbookProtocol, imacbookProtocol, iphoneProto
         let macbook = macbookVC() // instancia a class alvo
         macbook.modalPresentationStyle = .pageSheet // customizacao do tamanho de tela
         present(macbook, animated: true ,completion: nil) // invoca o método
+        
+        NotificationCenter.default.post( name: Notification.Name("macbook"), object: nil)  //UIColor.cyan)
+        // notificacao postada, sua senha é macbook, quem ouvir ira executar a acao do object
+        //Se o observador não especificar um object (ou seja, object: nil), ele receberá todas as notificações daquele nome, independentemente do objeto associado.
     }
     
     func imacbookTappedProtocol() {
         let imac = imacVC()
         imac.modalPresentationStyle = .pageSheet
         present(imac, animated: true ,completion: nil)
+        
     }
     
     func iphoneTappedProtocol() {
