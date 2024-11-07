@@ -10,8 +10,10 @@ import UIKit
 protocol VCScreenButtonProtocol : AnyObject {  // cria um Protocolo de Delegação para comunicar com o ViewController
     func tappedSelectButton() // método do protocolo, irá ser chamado na viewcontroller
     }
+
+
 class VCScreen: UIView {
-    
+    //      weak = fraco, dispensavel da memória apos seu uso
     private weak var delegateButton : VCScreenButtonProtocol?  // delegate  será qualquer classe que implementar o protocolo / propriedade do tipo delegate optional
     public func delegate( delegate: VCScreenButtonProtocol? ){ // o parametro dessa funcao, sera o delegado enviado para a private weak delegate
         self.delegateButton = delegate// parametro
@@ -21,7 +23,7 @@ class VCScreen: UIView {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(named: "apple-svgrepo-com" )?.withRenderingMode(.alwaysTemplate) // habilita a troca de cor da imagem
-        image.tintColor = .black // troca a cor da imagem
+        image.tintColor = .systemGray // troca a cor da imagem
         return image
     }()
     
@@ -30,8 +32,8 @@ class VCScreen: UIView {
         bt.translatesAutoresizingMaskIntoConstraints = false
         bt.setTitle("Enter", for: .normal) // texto do botao
         bt.titleLabel?.font = UIFont.systemFont(ofSize: 18)// tamanho da fonte
-        bt.setTitleColor(.black, for: .normal)
-        bt.backgroundColor = UIColor.systemGray5 // cor com transparencia
+        bt.setTitleColor(.black, for: .normal) // cor e estilo
+        bt.backgroundColor = UIColor.systemGray5 // cor com transparencia, mesma cor da view
         bt.layer.cornerRadius = 10 // angulo das bordas
         bt.clipsToBounds = true // habilita bordas arredondadas
         bt.layer.borderWidth = 1.0// largura borda
@@ -39,13 +41,13 @@ class VCScreen: UIView {
         bt.addTarget(self, action: #selector(tappetButtonSelectButton), for: .touchUpInside)
         return  bt
     }()
-    @objc func tappetButtonSelectButton( _ sender: UIButton){ // método invocado pela acao do botao
+    @objc func tappetButtonSelectButton( _ sender: UIButton){ // método invocado pela acao do botao, padrao
         print(#function)
         delegateButton?.tappedSelectButton() // ao clicar no botao, o delegado vai chamar o metodo do protocol
                     }
     
     
-    override init ( frame: CGRect){
+    override init ( frame: CGRect){ // inicializador padrao
         super.init(frame: frame)
         backgroundColor = .systemGray5
         addElements()

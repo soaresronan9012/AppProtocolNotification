@@ -65,7 +65,7 @@ class DeviceScreen: UIView {
         mac.isUserInteractionEnabled = true // habilita interacao do usuário
         return mac
     }()
-    private func setupGestureRecognizer() {
+    private func setupGestureRecognizer() {  // padrao do sistema
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(macbookImageTapped))
         macImageView.addGestureRecognizer(tapGesture)
                 }
@@ -126,12 +126,14 @@ class DeviceScreen: UIView {
             delegateipad?.ipadTappedProtocol() // método do protocolo
         }
     
+    
+    
     override init ( frame: CGRect){ //Define um parâmetro chamado frame do tipo CGRect. Um CGRect representa um retângulo e define a posição e o tamanho da view na tela.
         super.init(frame: frame)//inicializador pai, passa mesmo frame passado para o inicializador da nossa classe.
         backgroundColor = .systemGray5
         addElements()
         configConstraints()
-        setupGestureRecognizer()
+        setupGestureRecognizer()// metodos de toque das imagens
         setupGestureRecognizerimac()
         setupGestureRecognizeriphone()
         setupGestureRecognizeripad()

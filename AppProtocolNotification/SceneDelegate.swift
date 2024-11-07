@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return } // criou windowScene
         let window = UIWindow ( windowScene: windowScene) // criou a window e atribuiu a windowScene
         let vc: ViewController = ViewController() // instanciou a viewcontroller que sera a principal
-        let navVC = UINavigationController(rootViewController: vc)
+        let navVC = UINavigationController(rootViewController: vc) // a root da navVC é a Vc
         window.rootViewController = navVC // view controller se torna a raiz/ sem navCV
         window.makeKeyAndVisible()
         self.window = window

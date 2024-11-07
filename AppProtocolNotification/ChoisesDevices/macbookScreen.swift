@@ -20,13 +20,6 @@ class macbookScreen: UIView {
         self.delegateReturnButton = delegate// parametro
         }
     
-    lazy var macbookImage: UIImageView = {
-        let macbook = UIImageView()
-        macbook.translatesAutoresizingMaskIntoConstraints = false
-        macbook.image = UIImage(named: "imac" )
-        return macbook
-    }()
-    
     lazy var macbooklabel: UILabel = {
         let macbooklabel = UILabel()
         macbooklabel.translatesAutoresizingMaskIntoConstraints = false
@@ -39,6 +32,15 @@ class macbookScreen: UIView {
         
     }()
     
+    
+    lazy var macbookImage: UIImageView = {
+        let macbook = UIImageView()
+        macbook.translatesAutoresizingMaskIntoConstraints = false
+        macbook.image = UIImage(named: "imac" )
+        return macbook
+    }()
+    
+   
     lazy var buttonReturntButton : UIButton = {
         let bt = UIButton()
         bt.translatesAutoresizingMaskIntoConstraints = false
@@ -74,8 +76,8 @@ class macbookScreen: UIView {
     
     
     private func addElements () { // método para invocar os elementos para a view
-        addSubview(macbookImage)
         addSubview(macbooklabel)
+        addSubview(macbookImage)
         addSubview(buttonReturntButton)
     }
     

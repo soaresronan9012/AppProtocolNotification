@@ -27,7 +27,7 @@ class ViewController: UIViewController, VCScreenButtonProtocol {
         // notificationcenter do tipo observador, self pois sera atribuida aqui mesmo, updatemacbook sera o metodo invocado, name sera o nome da senha dada na criacao da notification center
     }
     @objc func updateMacbook(notification: NSNotification){
-        view.backgroundColor = .cyan          //notification.object as? UIColor
+        // view.backgroundColor = .cyan          //notification.object as? UIColor
         // ao ser chamada, o fundo se orienta pela acao da notification  as? = um do tipo UIColor
     }
     
