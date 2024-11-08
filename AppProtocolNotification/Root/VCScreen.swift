@@ -11,6 +11,9 @@ protocol VCScreenButtonProtocol : AnyObject {  // cria um Protocolo de Delegaç�
     func tappedSelectButton() // método do protocolo, irá ser chamado na viewcontroller
     }
 
+protocol appleUIImageProtocol : AnyObject { // protocolo da imagem logo
+    func tappedImage()
+}
 
 class VCScreen: UIView {
     //      weak = fraco, dispensavel da memória apos seu uso
@@ -18,14 +21,30 @@ class VCScreen: UIView {
     public func delegate( delegate: VCScreenButtonProtocol? ){ // o parametro dessa funcao, sera o delegado enviado para a private weak delegate
         self.delegateButton = delegate// parametro
         }
+    
+    private weak var delegateImage : appleUIImageProtocol?
+    
+    public func delegateImage( delegate: appleUIImageProtocol? ){
+        self.delegateImage = delegate
+    }
 
     lazy var appleUIImage : UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(named: "apple-svgrepo-com" )?.withRenderingMode(.alwaysTemplate) // habilita a troca de cor da imagem
         image.tintColor = .systemGray // troca a cor da imagem
+        image.isUserInteractionEnabled = true // habilita interacao com a imagem
         return image
     }()
+    private func setupGestureRecognizerApple() {  // padrao do sistema
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AppleImageTapped))
+        appleUIImage.addGestureRecognizer(tapGesture)
+                }
+        @objc private func AppleImageTapped() { // acao invocada ao ser clicada
+            print("imagem apple clicada!")
+            delegateImage?.tappedImage() // método do protocolo
+        }
+    
     
     lazy var buttonSelectButton : UIButton = {
         let bt = UIButton() // (type: .system) , ja tem um padrao estabelecido do sistema
@@ -52,6 +71,7 @@ class VCScreen: UIView {
         backgroundColor = .systemGray5
         addElements()
         configConstraints()
+        setupGestureRecognizerApple()
         
         
     }

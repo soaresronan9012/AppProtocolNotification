@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, VCScreenButtonProtocol {
+class ViewController: UIViewController, VCScreenButtonProtocol, appleUIImageProtocol {
     
     var screen : VCScreen? // var do tipo da view
     
@@ -19,6 +19,7 @@ class ViewController: UIViewController, VCScreenButtonProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         screen?.delegate(delegate: self)// invoca metodo protocolo
+        screen?.delegateImage(delegate: self)
         configobserver()
     }
     
@@ -43,5 +44,12 @@ class ViewController: UIViewController, VCScreenButtonProtocol {
         //present(device, animated: true ,completion: nil) // invoca o método
         navigationController?.pushViewController(device, animated: true)
              }
+    
+    func tappedImage(){
+        let device : ImageLogoVC = ImageLogoVC()
+        device.modalPresentationStyle = .formSheet
+        navigationController?.pushViewController(device, animated: true)
+        
+    }
     
 }
