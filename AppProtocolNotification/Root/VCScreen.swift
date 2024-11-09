@@ -11,7 +11,7 @@ protocol VCScreenButtonProtocol : AnyObject {  // cria um Protocolo de Delegaç�
     func tappedSelectButton() // método do protocolo, irá ser chamado na viewcontroller
     }
 
-protocol appleUIImageProtocol : AnyObject { // protocolo da imagem logo
+protocol appleUIImageProtocol : AnyObject { // protocolo da imagem logo, para habilitar interacao com a VC
     func tappedImage()
 }
 
@@ -31,8 +31,8 @@ class VCScreen: UIView {
     lazy var appleUIImage : UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(named: "apple-svgrepo-com" )?.withRenderingMode(.alwaysTemplate) // habilita a troca de cor da imagem
-        image.tintColor = .systemGray // troca a cor da imagem
+        image.image = UIImage(named: "Apple_logo_black.svg" )?.withRenderingMode(.alwaysTemplate) // habilita a troca de cor da imagem
+        image.tintColor = .black // troca a cor da imagem
         image.isUserInteractionEnabled = true // habilita interacao com a imagem
         return image
     }()
@@ -90,8 +90,8 @@ class VCScreen: UIView {
             NSLayoutConstraint.activate([ // essa configuracao é para cobrir toda a view
                 appleUIImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 180),
                 appleUIImage.centerXAnchor.constraint(equalTo: centerXAnchor),
-                appleUIImage.heightAnchor.constraint(equalToConstant: 200),
-                appleUIImage.widthAnchor.constraint(equalToConstant: 200),
+                appleUIImage.heightAnchor.constraint(equalToConstant: 180),
+                appleUIImage.widthAnchor.constraint(equalToConstant: 150),
                 
                 buttonSelectButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -105),
                 buttonSelectButton.centerXAnchor.constraint(equalTo: centerXAnchor),

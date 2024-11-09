@@ -159,25 +159,25 @@ class DeviceScreen: UIView {
     private func configConstraints () {
             NSLayoutConstraint.activate([ // essa configuracao é para cobrir toda a view
                 
-                titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 50),
+                titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 30),
                 titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
                 
-                macImageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 50),
+                macImageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 30),
                 macImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
                 macImageView.heightAnchor.constraint(equalToConstant: 100),
                 macImageView.widthAnchor.constraint(equalToConstant: 100),
                 
-                imacImageView.topAnchor.constraint(equalTo: macImageView.bottomAnchor, constant: 50),
+                imacImageView.topAnchor.constraint(equalTo: macImageView.bottomAnchor, constant: 20),
                 imacImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
                 imacImageView.heightAnchor.constraint(equalToConstant: 100),
                 imacImageView.widthAnchor.constraint(equalToConstant: 100),
                 
-                iphoneImageView.topAnchor.constraint(equalTo: imacImageView.bottomAnchor, constant: 50),
+                iphoneImageView.topAnchor.constraint(equalTo: imacImageView.bottomAnchor, constant: 30),
                 iphoneImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
                 iphoneImageView.heightAnchor.constraint(equalToConstant: 100),
                 iphoneImageView.widthAnchor.constraint(equalToConstant: 100),
                 
-                ipadImageView.topAnchor.constraint(equalTo: iphoneImageView.bottomAnchor, constant: 50),
+                ipadImageView.topAnchor.constraint(equalTo: iphoneImageView.bottomAnchor, constant: 30),
                 ipadImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
                 ipadImageView.heightAnchor.constraint(equalToConstant: 100),
                 ipadImageView.widthAnchor.constraint(equalToConstant: 100),

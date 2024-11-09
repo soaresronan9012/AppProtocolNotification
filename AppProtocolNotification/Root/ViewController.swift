@@ -19,7 +19,7 @@ class ViewController: UIViewController, VCScreenButtonProtocol, appleUIImageProt
     override func viewDidLoad() {
         super.viewDidLoad()
         screen?.delegate(delegate: self)// invoca metodo protocolo
-        screen?.delegateImage(delegate: self)
+        screen?.delegateImage(delegate: self) // invoca metodo protocolo
         configobserver()
     }
     
