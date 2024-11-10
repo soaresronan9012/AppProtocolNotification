@@ -30,6 +30,18 @@ class ImageLogoScreen: UIView {
         return parklabel
         }()
     
+    lazy var settingsLabel: UILabel = {
+        let settingslabel = UILabel()
+        settingslabel.translatesAutoresizingMaskIntoConstraints = false
+        settingslabel.text = "for more information, click here"
+        settingslabel.textAlignment = .center
+        settingslabel.textAlignment = .center  // Centraliza o texto no label
+        settingslabel.font = UIFont.systemFont(ofSize: 14, weight: .bold)  // Define a fonte e o tamanho
+        settingslabel.textColor = .black // Cor do texto
+        settingslabel.numberOfLines = 0  // habilita varias linhas
+        return settingslabel
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame:frame)
         backgroundColor = .systemGray5
@@ -44,13 +56,14 @@ class ImageLogoScreen: UIView {
     func addElements() {
         addSubview(parkAppleImageView)
         addSubview(parkAppleLabel)
+        addSubview(settingsLabel)
     }
     
     func addConstraints () {
         NSLayoutConstraint.activate([
            
             parkAppleImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 80),
-            parkAppleImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            //parkAppleImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             parkAppleImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             parkAppleImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             parkAppleImageView.heightAnchor.constraint(equalToConstant: 150),
@@ -59,6 +72,11 @@ class ImageLogoScreen: UIView {
             parkAppleLabel.topAnchor.constraint(equalTo: parkAppleImageView.bottomAnchor, constant:50 ),
             parkAppleLabel.leadingAnchor.constraint(equalTo: parkAppleImageView.leadingAnchor),
             parkAppleLabel.trailingAnchor.constraint(equalTo: parkAppleImageView.trailingAnchor),
+            
+            settingsLabel.topAnchor.constraint(equalTo: parkAppleLabel.bottomAnchor, constant: 60),
+            settingsLabel.leadingAnchor.constraint(equalTo: parkAppleImageView.leadingAnchor),
+            settingsLabel.trailingAnchor.constraint(equalTo: parkAppleImageView.trailingAnchor),
+            //settingsLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
             
             
