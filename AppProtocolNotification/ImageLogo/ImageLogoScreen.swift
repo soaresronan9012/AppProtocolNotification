@@ -37,16 +37,32 @@ class ImageLogoScreen: UIView {
         settingslabel.textAlignment = .center
         settingslabel.textAlignment = .center  // Centraliza o texto no label
         settingslabel.font = UIFont.systemFont(ofSize: 14, weight: .bold)  // Define a fonte e o tamanho
-        settingslabel.textColor = .black // Cor do texto
+        settingslabel.textColor = .systemGray2 // Cor do texto
         settingslabel.numberOfLines = 0  // habilita varias linhas
+        settingslabel.isUserInteractionEnabled = true
         return settingslabel
     }()
+    /*private func setupSetingsLabel(): Declara uma função privada chamada setupSetingsLabel, que será usada para configurar o reconhecimento de toque no label.
+     let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(settingsLabelTapped)): Cria um UITapGestureRecognizer que detecta toques no label. O target: self define que o alvo do gesto é a própria classe, e action: #selector(settingsLabelTapped) especifica o método que será executado quando o label for tocado.
+     settingsLabel.addGestureRecognizer(tapGestureRecognizer): Adiciona o tapGestureRecognizer ao label, habilitando a detecção do toque.*/
+    private func setupSetingsLabel() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(settingsLabelTapped))
+        settingsLabel.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    
+    //@objc private func settingsLabelTapped(): Declara um método chamado settingsLabelTapped marcado como @objc para ser compatível com o seletor de ação do UITapGestureRecognizer. Esse método é chamado quando o label é clicado.
+    @objc private func settingsLabelTapped() {
+        print("label clicada")
+    }
+    
     
     override init(frame: CGRect) {
         super.init(frame:frame)
         backgroundColor = .systemGray5
         addElements()
         addConstraints()
+        setupSetingsLabel() // invoca metodo que habilita interacao com a label
     }
     
     required init?(coder: NSCoder) {
