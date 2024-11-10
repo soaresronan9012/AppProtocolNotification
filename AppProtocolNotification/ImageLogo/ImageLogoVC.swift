@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ImageLogoVC: UIViewController {
+class ImageLogoVC: UIViewController, ImageLogoScreenProtocol {
     
     var screen : ImageLogoScreen? // cria uma variavel do tipo dessa view
 
@@ -15,10 +15,16 @@ class ImageLogoVC: UIViewController {
         super.viewDidLoad()
         screen = ImageLogoScreen() // instancia view
         view = screen // atribui a view a esse VC
+        screen?.imageLogoScreen(delegate: self)
 
         // Do any additional setup after loading the view.
     }
     
-
+    func imageLogoScreen() {
+        let login : LoginVC = LoginVC()
+        login.modalPresentationStyle = .formSheet
+        navigationController?.pushViewController(login, animated: true)
+        
+    }
    
 }

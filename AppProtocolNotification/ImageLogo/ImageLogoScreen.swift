@@ -7,7 +7,17 @@
 
 import UIKit
 
+protocol ImageLogoScreenProtocol: AnyObject {
+    func imageLogoScreen()
+}
+
 class ImageLogoScreen: UIView {
+    
+    weak var delegateImage: ImageLogoScreenProtocol?
+    
+    func imageLogoScreen(delegate: ImageLogoScreenProtocol) {
+        self.delegateImage = delegate
+    }
     
     
     lazy var parkAppleImageView: UIImageView = {
@@ -39,7 +49,7 @@ class ImageLogoScreen: UIView {
         settingslabel.font = UIFont.systemFont(ofSize: 14, weight: .bold)  // Define a fonte e o tamanho
         settingslabel.textColor = .systemGray2 // Cor do texto
         settingslabel.numberOfLines = 0  // habilita varias linhas
-        settingslabel.isUserInteractionEnabled = true
+        settingslabel.isUserInteractionEnabled = true // interacao com o elemento via touch
         return settingslabel
     }()
     /*private func setupSetingsLabel(): Declara uma função privada chamada setupSetingsLabel, que será usada para configurar o reconhecimento de toque no label.
@@ -54,6 +64,7 @@ class ImageLogoScreen: UIView {
     //@objc private func settingsLabelTapped(): Declara um método chamado settingsLabelTapped marcado como @objc para ser compatível com o seletor de ação do UITapGestureRecognizer. Esse método é chamado quando o label é clicado.
     @objc private func settingsLabelTapped() {
         print("label clicada")
+        delegateImage?.imageLogoScreen()
     }
     
     
@@ -93,11 +104,8 @@ class ImageLogoScreen: UIView {
             settingsLabel.leadingAnchor.constraint(equalTo: parkAppleImageView.leadingAnchor),
             settingsLabel.trailingAnchor.constraint(equalTo: parkAppleImageView.trailingAnchor),
             //settingsLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            
-            
-            
-            
             ])
     }
+
     
 }
