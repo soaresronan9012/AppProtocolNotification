@@ -15,7 +15,7 @@ class ImageLogoVC: UIViewController, ImageLogoScreenProtocol {
         super.viewDidLoad()
         screen = ImageLogoScreen() // instancia view
         view = screen // atribui a view a esse VC
-        screen?.imageLogoScreen(delegate: self)
+        screen?.imageLogoScreen(delegate: self) // invoca metodo delegate
 
         // Do any additional setup after loading the view.
     }
