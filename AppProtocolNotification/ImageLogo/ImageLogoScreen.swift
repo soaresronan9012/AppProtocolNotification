@@ -101,9 +101,9 @@ class ImageLogoScreen: UIView {
             parkAppleLabel.trailingAnchor.constraint(equalTo: parkAppleImageView.trailingAnchor),
             
             settingsLabel.topAnchor.constraint(equalTo: parkAppleLabel.bottomAnchor, constant: 60),
-            settingsLabel.leadingAnchor.constraint(equalTo: parkAppleImageView.leadingAnchor),
-            settingsLabel.trailingAnchor.constraint(equalTo: parkAppleImageView.trailingAnchor),
-            //settingsLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            //settingsLabel.leadingAnchor.constraint(equalTo: parkAppleImageView.leadingAnchor),
+            //settingsLabel.trailingAnchor.constraint(equalTo: parkAppleImageView.trailingAnchor),
+            settingsLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             ])
     }
 

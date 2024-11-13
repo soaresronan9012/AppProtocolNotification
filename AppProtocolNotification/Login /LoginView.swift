@@ -15,7 +15,7 @@ class LoginView: UIView {
         label.textColor = .black
         label.textAlignment = .center
         label.text = "Log In"
-        label.font = UIFont.systemFont(ofSize: 40, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 50, weight: .bold)
         return label
     }()
 
@@ -76,6 +76,37 @@ class LoginView: UIView {
             return line
         }()
     
+    lazy var recoverButton : UIButton = {  // botao onde aparece somente o seu texto
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("recover Password", for: .normal)
+        button.setTitleColor(.systemGray, for: .normal)
+        button.backgroundColor = .clear  //remove visual do botao
+        button.layer.borderWidth = 0     // remove bordas
+        button.addTarget(self, action: #selector(recoverButtonTappet), for: .touchUpInside)
+        return button
+    }()
+    @objc func recoverButtonTappet(){
+        print("clicou recuperar senha ")
+    }
+    
+    
+    lazy var loginButton : UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Login", for: .normal)
+        button.setTitleColor(.systemGray6, for: .normal)
+        button.backgroundColor = .black
+        button.layer.cornerRadius = 10
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.black.cgColor
+        button.addTarget(self, action: #selector(buttonTappet), for: .touchUpInside)
+        return button
+    }()
+    @objc func buttonTappet(){
+        print("clicou")
+    }
+    
     
     
     
@@ -104,6 +135,10 @@ class LoginView: UIView {
         addSubview(imagePassword)
         addSubview(textPassword)
         addSubview(linePasswordView)
+        //recoverButton
+        addSubview(recoverButton)
+        //button
+        addSubview(loginButton)
     }
     
     func configConstraint(){
@@ -133,12 +168,12 @@ class LoginView: UIView {
             lineNameView.trailingAnchor.constraint(equalTo: viewUserName.trailingAnchor),
             lineNameView.heightAnchor.constraint(equalToConstant: 1),
             
-            imagePassword.topAnchor.constraint(equalTo: lineNameView.bottomAnchor, constant: 30),
+            imagePassword.topAnchor.constraint(equalTo: lineNameView.bottomAnchor, constant: 40),
             imagePassword.leadingAnchor.constraint(equalTo: viewUserName.leadingAnchor, constant: 10),
             imagePassword.widthAnchor.constraint(equalToConstant: 40),
             imagePassword.heightAnchor.constraint(equalToConstant: 40),
             
-            textPassword.topAnchor.constraint(equalTo: lineNameView.topAnchor, constant: 40),
+            textPassword.topAnchor.constraint(equalTo: lineNameView.topAnchor, constant: 50),
             textPassword.leadingAnchor.constraint(equalTo: imagePassword.leadingAnchor, constant: 70),
             textPassword.trailingAnchor.constraint(equalTo: viewUserName.trailingAnchor, constant: -10),
             
@@ -146,6 +181,15 @@ class LoginView: UIView {
             linePasswordView.leadingAnchor.constraint(equalTo: viewUserName.leadingAnchor),
             linePasswordView.trailingAnchor.constraint(equalTo: viewUserName.trailingAnchor),
             linePasswordView.heightAnchor.constraint(equalToConstant: 1),
+            
+            recoverButton.topAnchor.constraint(equalTo: linePasswordView.topAnchor, constant: 10),
+            recoverButton.trailingAnchor.constraint(equalTo: viewUserName.trailingAnchor),
+            
+            
+            loginButton.topAnchor.constraint(equalTo: recoverButton.bottomAnchor, constant: 80),
+            loginButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            loginButton.widthAnchor.constraint(equalToConstant: 120),
+            loginButton.heightAnchor.constraint(equalToConstant: 40),
             
             
             
