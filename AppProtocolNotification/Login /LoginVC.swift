@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginVC: UIViewController {
+class LoginVC: UIViewController, loginViewProtocol {
     
     var screen: LoginView?
     
@@ -18,5 +18,15 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        screen?.delegateButtonFunc(delegate: self)// invoca metodo que habilita delegate
     }
-}
+    
+    func tappedButtonProtocol() {
+        let device  : DeviceVC = DeviceVC() // instancia a class alvo
+        device.modalPresentationStyle = .formSheet // customizacao do tamanho de tela
+        //present(device, animated: true ,completion: nil) // invoca o método
+        navigationController?.pushViewController(device, animated: true)
+             }
+    }
+    
+    

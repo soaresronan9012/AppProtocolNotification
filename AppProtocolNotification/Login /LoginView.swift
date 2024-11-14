@@ -7,7 +7,17 @@
 
 import UIKit
 
+protocol loginViewProtocol : AnyObject {  // cria um Protocolo para comunicar com o ViewController
+    func tappedButtonProtocol() // método do protocolo, irá ser chamado na viewcontroller
+    }
+
 class LoginView: UIView {
+    
+    private weak var delegateButton : loginViewProtocol?  // delegate  será qualquer classe que implementar o protocolo / propriedade do tipo delegate optional
+    public func delegateButtonFunc( delegate: loginViewProtocol? ){ // o parametro dessa funcao, sera o delegado enviado para a private weak delegate
+            self.delegateButton = delegate// parametro
+            }
+    
     
     lazy var LoginLabel: UILabel = {
         let label = UILabel()
@@ -103,8 +113,9 @@ class LoginView: UIView {
         button.addTarget(self, action: #selector(buttonTappet), for: .touchUpInside)
         return button
     }()
-    @objc func buttonTappet(){
+    @objc func buttonTappet( _ sender: UIButton){
         print("clicou")
+        delegateButton?.tappedButtonProtocol()  // var do tipo do protocol / metodo protocol
     }
     
     

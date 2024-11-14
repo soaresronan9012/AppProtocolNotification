@@ -39,11 +39,10 @@ class ViewController: UIViewController, VCScreenButtonProtocol, appleUIImageProt
 
     
     func tappedSelectButton(){
-        let device  : DeviceVC = DeviceVC() // instancia a class alvo
-        device.modalPresentationStyle = .formSheet // customizacao do tamanho de tela
-        //present(device, animated: true ,completion: nil) // invoca o método
-        navigationController?.pushViewController(device, animated: true)
-             }
+        let login : LoginVC = LoginVC()
+        login.modalPresentationStyle = .formSheet
+        navigationController?.pushViewController(login, animated: true)
+    }
     
     func tappedImage(){
         let device : ImageLogoVC = ImageLogoVC()
