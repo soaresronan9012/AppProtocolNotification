@@ -11,7 +11,7 @@ class InformationScreen: UIView {
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Welcome this Word!!"
+        label.text = "Welcome!"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
         label.textAlignment = .center
