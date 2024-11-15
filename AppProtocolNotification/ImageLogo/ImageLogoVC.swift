@@ -21,9 +21,9 @@ class ImageLogoVC: UIViewController, ImageLogoScreenProtocol {
     }
     
     func imageLogoScreen() {
-        let login : LoginVC = LoginVC()
-        login.modalPresentationStyle = .formSheet
-        navigationController?.pushViewController(login, animated: true)
+        let information : InformationVC = InformationVC()
+        information.modalPresentationStyle = .formSheet
+        navigationController?.pushViewController(information, animated: true)
         
     }
    
