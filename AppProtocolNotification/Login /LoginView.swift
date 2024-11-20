@@ -104,12 +104,13 @@ class LoginView: UIView {
     lazy var loginButton : UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.isEnabled = false
         button.setTitle("Login", for: .normal)
         button.setTitleColor(.systemGray6, for: .normal)
-        button.backgroundColor = .black
+        button.backgroundColor = .systemGray
         button.layer.cornerRadius = 10
         button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.black.cgColor
+        button.layer.borderColor = UIColor.systemGray.cgColor
         button.addTarget(self, action: #selector(buttonTappet), for: .touchUpInside)
         return button
     }()
@@ -131,6 +132,26 @@ class LoginView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    public func configDelegateTextField(delegate: UITextFieldDelegate){  // func assinatura do protocol
+        textName.delegate = delegate   // elementos a serem validados dentro desse protocol
+        textPassword.delegate = delegate
+    }
+    
+    // metodo com a validacao dos campos alvos, e tomadas de ações
+    public func validaTextField (){
+        let email: String = textName.text ?? " "
+        let password: String = textPassword.text ?? " "
+                   
+        if !email.isEmpty && !password.isEmpty {   // se estiverem preenchidos faça
+            loginButton.isEnabled = true
+            loginButton.backgroundColor = .black
+            loginButton.layer.borderColor = UIColor.black.cgColor}
+        else {
+            loginButton.isEnabled = false
+            loginButton.backgroundColor = .systemGray
+            loginButton.layer.borderColor = UIColor.systemGray.cgColor}
     }
     
     

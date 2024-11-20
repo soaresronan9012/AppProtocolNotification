@@ -19,6 +19,7 @@ class LoginVC: UIViewController, loginViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         screen?.delegateButtonFunc(delegate: self)// invoca metodo que habilita delegate
+        screen?.configDelegateTextField(delegate: self)  // invoca metodo que habilita esse delegate
     }
     
     func tappedButtonProtocol() {
@@ -29,4 +30,20 @@ class LoginVC: UIViewController, loginViewProtocol {
              }
     }
     
+extension LoginVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool { //método habilita botao return do teclado
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) { // fazer as validações sempre aqui
+        screen?.delegateButtonFunc(delegate: self)
+        screen?.validaTextField()
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        screen?.configDelegateTextField(delegate: self)
+    }
+    
+}
     

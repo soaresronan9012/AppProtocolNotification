@@ -74,7 +74,7 @@ class InformationScreen: UIView {
             imageHead.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             //imageHead.centerXAnchor.constraint(equalTo: centerXAnchor),
             imageHead.heightAnchor.constraint(equalToConstant:150),
-            imageHead.widthAnchor.constraint(equalToConstant: 750),
+            //imageHead.widthAnchor.constraint(equalToConstant: 750),
             
             textLabel.topAnchor.constraint(equalTo: imageHead.bottomAnchor, constant: 50),
             textLabel.leadingAnchor.constraint(equalTo:titleLabel.leadingAnchor),
