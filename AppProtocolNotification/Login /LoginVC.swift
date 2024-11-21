@@ -20,6 +20,7 @@ class LoginVC: UIViewController, loginViewProtocol {
         super.viewDidLoad()
         screen?.delegateButtonFunc(delegate: self)// invoca metodo que habilita delegate
         screen?.configDelegateTextField(delegate: self)  // invoca metodo que habilita esse delegate
+        screen?.delegateRecoverButtonFunc(delegate: self) // metodo que habilita delegate do recoverpassword
     }
     
     func tappedButtonProtocol() {
@@ -42,8 +43,17 @@ extension LoginVC: UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        screen?.configDelegateTextField(delegate: self)
+        screen?.configDelegateTextField(delegate: self)}
+
     }
-    
+
+extension LoginVC: recoverButtonProtocol {
+    func tappedRecoverButtonProtocol() {
+        let recover = RecoverVC()
+          recover.modalPresentationStyle = .pageSheet
+          present(recover, animated: true ,completion: nil)
+    }
 }
+
+
     

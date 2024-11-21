@@ -11,12 +11,22 @@ protocol loginViewProtocol : AnyObject {  // cria um Protocolo para comunicar co
     func tappedButtonProtocol() // método do protocolo, irá ser chamado na viewcontroller
     }
 
+protocol recoverButtonProtocol : AnyObject {
+    func tappedRecoverButtonProtocol()
+}
+
 class LoginView: UIView {
     
     private weak var delegateButton : loginViewProtocol?  // delegate  será qualquer classe que implementar o protocolo / propriedade do tipo delegate optional
     public func delegateButtonFunc( delegate: loginViewProtocol? ){ // o parametro dessa funcao, sera o delegado enviado para a private weak delegate
             self.delegateButton = delegate// parametro
             }
+    
+    // botão recover password
+    private weak var delegateRecoverButton : recoverButtonProtocol?
+    public func delegateRecoverButtonFunc( delegate: recoverButtonProtocol? ){
+        self.delegateRecoverButton = delegate
+    }
     
     
     lazy var LoginLabel: UILabel = {
@@ -25,7 +35,7 @@ class LoginView: UIView {
         label.textColor = .black
         label.textAlignment = .center
         label.text = "Log In"
-        label.font = UIFont.systemFont(ofSize: 50, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 40, weight: .bold)
         return label
     }()
 
@@ -98,6 +108,7 @@ class LoginView: UIView {
     }()
     @objc func recoverButtonTappet(){
         print("clicou recuperar senha ")
+        delegateRecoverButton?.tappedRecoverButtonProtocol()
     }
     
     
