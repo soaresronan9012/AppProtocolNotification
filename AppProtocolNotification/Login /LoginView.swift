@@ -59,15 +59,16 @@ class LoginView: UIView {
         text.translatesAutoresizingMaskIntoConstraints = false
         text.placeholder = "Username"
         text.textColor = .systemGray
+        text.keyboardType = .emailAddress
         text.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         return text
     }()
     
     lazy var lineNameView : UIView = { // line
-            let line = UIView()
-            line.translatesAutoresizingMaskIntoConstraints = false
+        let line = UIView()
+        line.translatesAutoresizingMaskIntoConstraints = false
         line.backgroundColor = .black
-            return line
+        return line
         }()
     
     
@@ -99,7 +100,7 @@ class LoginView: UIView {
     lazy var recoverButton : UIButton = {  // botao onde aparece somente o seu texto
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("recover Password", for: .normal)
+        button.setTitle("recover / create account", for: .normal)
         button.setTitleColor(.systemGray, for: .normal)
         button.backgroundColor = .clear  //remove visual do botao
         button.layer.borderWidth = 0     // remove bordas
@@ -130,8 +131,7 @@ class LoginView: UIView {
         delegateButton?.tappedButtonProtocol()  // var do tipo do protocol / metodo protocol
     }
     
-    
-    
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -152,7 +152,7 @@ class LoginView: UIView {
     
     // metodo com a validacao dos campos alvos, e tomadas de ações
     public func validaTextField (){
-        let email: String = textName.text ?? " "
+        let email: String = textName.text ?? " "   //pode receber ou nao valores, possui valor default
         let password: String = textPassword.text ?? " "
                    
         if !email.isEmpty && !password.isEmpty {   // se estiverem preenchidos faça

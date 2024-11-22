@@ -71,7 +71,7 @@ class VCScreen: UIView {
         backgroundColor = .systemGray5
         addElements()
         configConstraints()
-        setupGestureRecognizerApple()
+        setupGestureRecognizerApple() // quando tem acao de clique em um componente sem ser o button
         
         
     }
