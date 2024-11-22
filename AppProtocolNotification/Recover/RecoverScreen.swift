@@ -33,9 +33,9 @@ class RecoverScreen: UIView {
         text.translatesAutoresizingMaskIntoConstraints = false
         text.placeholder = "Enter your email"
         text.textColor = .systemGray
-        text.isSecureTextEntry = true
         text.keyboardType = .emailAddress
         text.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        //text.isUserInteractionEnabled = true  // habilita interacao de toque
         return text
     }()
     
@@ -96,11 +96,22 @@ class RecoverScreen: UIView {
         backgroundColor = .systemGray5
         addElements()
         setupConstraints()
+        setupDismissKeyboardGesture()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // funcao que baixa o teclado ao tocar na tela
+    private func setupDismissKeyboardGesture() {
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+            tapGesture.cancelsTouchesInView = false // Permite que outros gestos ainda sejam processados
+        self.addGestureRecognizer(tapGesture)
+        }
+    @objc private func dismissKeyboard() {
+        self.endEditing(true) // Fecha o teclado
+       }
     
     func addElements() {
         addSubview(titleLabel)
@@ -125,7 +136,7 @@ class RecoverScreen: UIView {
             //viewline.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             //viewline.heightAnchor.constraint(equalToConstant: 1),
             
-            recoverEmail.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 81),
+            recoverEmail.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 101),
             recoverEmail.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             recoverEmail.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
             
@@ -148,14 +159,14 @@ class RecoverScreen: UIView {
             logoView.widthAnchor.constraint(equalToConstant: 170),
             
             appleLogo.topAnchor.constraint(equalTo: logoView.topAnchor, constant: 10),
-            appleLogo.leadingAnchor.constraint(equalTo: logoView.leadingAnchor, constant: 30),
-            appleLogo.widthAnchor.constraint(equalToConstant: 48),
-            appleLogo.heightAnchor.constraint(equalToConstant: 48),
+            appleLogo.leadingAnchor.constraint(equalTo: logoView.leadingAnchor, constant: 40),
+            appleLogo.widthAnchor.constraint(equalToConstant: 38),
+            appleLogo.heightAnchor.constraint(equalToConstant: 38),
             
             googleLogo.topAnchor.constraint(equalTo: logoView.topAnchor, constant: 11),
-            googleLogo.leadingAnchor.constraint(equalTo: appleLogo.trailingAnchor, constant: 20),
-            googleLogo.widthAnchor.constraint(equalToConstant: 50),
-            googleLogo.heightAnchor.constraint(equalToConstant: 50),
+            googleLogo.leadingAnchor.constraint(equalTo: appleLogo.trailingAnchor, constant: 18),
+            googleLogo.widthAnchor.constraint(equalToConstant: 40),
+            googleLogo.heightAnchor.constraint(equalToConstant: 40),
             
             
             
