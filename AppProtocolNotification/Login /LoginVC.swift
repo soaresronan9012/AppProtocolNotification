@@ -39,7 +39,7 @@ extension LoginVC: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) { // fazer as validações sempre aqui
         screen?.delegateButtonFunc(delegate: self)
-        screen?.validaTextField() // funcao que consta a validacao
+        screen?.callValidaTextField() // funcao que consta a validacao
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {

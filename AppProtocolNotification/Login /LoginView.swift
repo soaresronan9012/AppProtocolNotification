@@ -138,7 +138,7 @@ class LoginView: UIView {
         backgroundColor = .systemGray5
         addelement()
         configConstraint()
-        
+        setupDismissKeyboardGesture() // baixa o teclado ao clicar no corpo da view
     }
     
     required init?(coder: NSCoder) {
@@ -151,7 +151,7 @@ class LoginView: UIView {
     }
     
     // metodo com a validacao dos campos alvos, e tomadas de ações
-    public func validaTextField (){
+     private func validaTextField (){
         let email: String = textName.text ?? " "   //pode receber ou nao valores, possui valor default
         let password: String = textPassword.text ?? " "
                    
@@ -164,6 +164,20 @@ class LoginView: UIView {
             loginButton.backgroundColor = .systemGray
             loginButton.layer.borderColor = UIColor.systemGray.cgColor}
     }
+    
+    func callValidaTextField(){
+        validaTextField()
+    }
+    
+    // funcao que baixa o teclado ao tocar na tela
+    private func setupDismissKeyboardGesture() {
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+            tapGesture.cancelsTouchesInView = false // Permite que outros gestos ainda sejam processados
+        self.addGestureRecognizer(tapGesture)
+        }
+    @objc private func dismissKeyboard() {
+        self.endEditing(true) // Fecha o teclado
+       }
     
     
     func addelement(){
