@@ -42,10 +42,24 @@ extension LoginVC: UITextFieldDelegate {
         screen?.callValidaTextField() // funcao que consta a validacao
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        screen?.configDelegateTextField(delegate: self)}
-
+    func  habilitField () {  // funcao que desabilita advertencia de campo incompleto
+        if screen?.textName.text?.isEmpty == true{
+            screen?.textName.layer.borderColor = UIColor.red.cgColor
+            screen?.textName.layer.borderWidth = 0
+        }
+        if screen?.textPassword.text?.isEmpty == true {
+            screen?.textPassword.layer.borderColor = UIColor.red.cgColor
+            screen?.textPassword.layer.borderWidth = 0        }
     }
+    
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        screen?.configDelegateTextField(delegate: self)
+        habilitField() // invoca a funcao que limpa advertecia
+    }
+    
+   
+}
 
 extension LoginVC: recoverButtonProtocol {
     func tappedRecoverButtonProtocol() {

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RecoverVC: UIViewController {
+class RecoverVC: UIViewController, UITextFieldDelegate {  // extensao ao protocol
     
     var screen : RecoverScreen?
     
@@ -15,13 +15,12 @@ class RecoverVC: UIViewController {
         screen = RecoverScreen()
         view = screen!
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        screen?.configDelegateTextField(delegate: self) // invocando delegate padrao de uitextfield
+        
     }
-    
-
    
+    
 }

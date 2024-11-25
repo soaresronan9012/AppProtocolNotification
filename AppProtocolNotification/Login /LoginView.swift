@@ -159,13 +159,23 @@ class LoginView: UIView {
             loginButton.isEnabled = true
             loginButton.backgroundColor = .black
             loginButton.layer.borderColor = UIColor.black.cgColor}
-        else {
-            loginButton.isEnabled = false
-            loginButton.backgroundColor = .systemGray
-            loginButton.layer.borderColor = UIColor.systemGray.cgColor}
+         else {
+             loginButton.isEnabled = false
+             loginButton.backgroundColor = .systemGray
+             loginButton.layer.borderColor = UIColor.systemGray.cgColor
+                // gerador de advertencia visual, caso algum campo fique vazio
+                if email.isEmpty {
+                    textName.layer.borderColor = UIColor.red.cgColor
+                    textName.layer.borderWidth = 1
+                    }
+                if password.isEmpty{
+                    textPassword.layer.borderColor = UIColor.red.cgColor
+                    textPassword.layer.borderWidth = 1
+                    }
+            }
     }
     
-    func callValidaTextField(){
+    func callValidaTextField(){ // metodo public invoca método private
         validaTextField()
     }
     

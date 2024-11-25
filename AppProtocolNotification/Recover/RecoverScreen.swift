@@ -103,6 +103,10 @@ class RecoverScreen: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    public func configDelegateTextField(delegate: UITextFieldDelegate){  // func assinatura do protocol
+        recoverEmail.delegate = delegate   // elementos a serem validados dentro desse protocol
+        
+    }
     // funcao que baixa o teclado ao tocar na tela
     private func setupDismissKeyboardGesture() {
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
