@@ -41,6 +41,25 @@ class InformationScreen: UIView {
         return label
     }()
     
+    lazy var buttonAcess : UIButton = {
+        let bt = UIButton()
+        bt.translatesAutoresizingMaskIntoConstraints = false
+        bt.setTitle("Acess", for: .normal) // texto do botao
+        bt.titleLabel?.font = UIFont.systemFont(ofSize: 18)// tamanho da fonte
+        bt.setTitleColor(.black, for: .normal) // cor e estilo
+        bt.backgroundColor = UIColor.systemGray5 // cor com transparencia, mesma cor da view
+        bt.layer.cornerRadius = 10 // angulo das bordas
+        bt.clipsToBounds = true // habilita bordas arredondadas
+        bt.layer.borderWidth = 1.0// largura borda
+        bt.layer.borderColor = UIColor.black.cgColor // cor da borda
+        bt.addTarget(self, action: #selector(tappetButtonAcesstButton), for: .touchUpInside)
+        return  bt
+    }()
+    @objc func tappetButtonAcesstButton( _ sender: UIButton){ // método invocado pela acao do botao, padrao
+        print(#function)
+        }
+    
+    
     
     override init(frame: CGRect) {
          super.init(frame: frame)
@@ -59,6 +78,7 @@ class InformationScreen: UIView {
         addSubview(titleLabel)
         addSubview(imageHead)
         addSubview(textLabel)
+        addSubview(buttonAcess)
         
     }
     
@@ -79,7 +99,11 @@ class InformationScreen: UIView {
             textLabel.topAnchor.constraint(equalTo: imageHead.bottomAnchor, constant: 50),
             textLabel.leadingAnchor.constraint(equalTo:titleLabel.leadingAnchor),
             textLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            ])
+            
+            buttonAcess.topAnchor.constraint(equalTo: textLabel.bottomAnchor, constant: 30),
+            buttonAcess.centerXAnchor.constraint(equalTo: centerXAnchor),
+            buttonAcess.widthAnchor.constraint(equalToConstant: 100),
+            buttonAcess.heightAnchor.constraint(equalToConstant: 32),            ])
     }
     
 }
