@@ -7,7 +7,7 @@
 
 import UIKit
 
-class InformationVC: UIViewController {
+class InformationVC: UIViewController, acessButtonProtocol {
     
     
     var screem : InformationScreen?
@@ -19,12 +19,15 @@ class InformationVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        screem?.acessButtonDelegate = self
         
 
         // Do any additional setup after loading the view.
     }
     
-
-    
+    func acessButtonTapped(){
+        let login : LoginVC = LoginVC()
+        login.modalPresentationStyle = .formSheet
+        navigationController?.pushViewController(login, animated: true)    }
 
 }

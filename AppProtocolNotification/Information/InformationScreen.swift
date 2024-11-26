@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol acessButtonProtocol: AnyObject {
+    func acessButtonTapped()
+}
+
 class InformationScreen: UIView {
+    
+    weak var acessButtonDelegate: acessButtonProtocol?
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -57,6 +63,8 @@ class InformationScreen: UIView {
     }()
     @objc func tappetButtonAcesstButton( _ sender: UIButton){ // método invocado pela acao do botao, padrao
         print(#function)
+        acessButtonDelegate?.acessButtonTapped()
+        
         }
     
     
