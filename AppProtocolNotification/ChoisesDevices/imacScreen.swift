@@ -46,7 +46,7 @@ class imacScreen: UIView {
         bt.setTitle("Return", for: .normal) // texto do botao
         bt.titleLabel?.font = UIFont.systemFont(ofSize: 18)// tamanho da fonte
         bt.setTitleColor(.black, for: .normal)
-        bt.backgroundColor = UIColor.systemGray5 // cor com transparencia
+        bt.backgroundColor = UIColor.systemGray4 // cor com transparencia
         bt.layer.cornerRadius = 10 // angulo das bordas
         bt.clipsToBounds = true // habilita bordas arredondadas
         bt.layer.borderWidth = 1.0// largura borda
@@ -62,7 +62,7 @@ class imacScreen: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .systemGray5
+        backgroundColor = .systemGray4
         addElements()
         configconstrain()
         

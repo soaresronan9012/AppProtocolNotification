@@ -32,6 +32,7 @@ class LoginVC: UIViewController, loginViewProtocol {
     }
     
 extension LoginVC: UITextFieldDelegate {
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool { //método habilita botao return do teclado
         textField.resignFirstResponder()
         return true
@@ -44,16 +45,16 @@ extension LoginVC: UITextFieldDelegate {
     
     func  habilitField () {  // funcao que desabilita advertencia de campo incompleto
         if screen?.textName.text?.isEmpty == true{
-            screen?.textName.layer.borderColor = UIColor.red.cgColor
+            //screen?.textName.layer.borderColor = UIColor.red.cgColor
             screen?.textName.layer.borderWidth = 0
         }
         if screen?.textPassword.text?.isEmpty == true {
-            screen?.textPassword.layer.borderColor = UIColor.red.cgColor
+            //screen?.textPassword.layer.borderColor = UIColor.red.cgColor
             screen?.textPassword.layer.borderWidth = 0        }
     }
     
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) { // quando inicia a digitacao
         screen?.configDelegateTextField(delegate: self)
         habilitField() // invoca a funcao que limpa advertecia
     }

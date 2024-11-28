@@ -15,19 +15,22 @@ class InformationVC: UIViewController, acessButtonProtocol {
     override func loadView() {
         screem = InformationScreen()
         view = screem
-        }
-
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        screem?.acessButtonDelegate = self
+        screem?.acessButtonDelegate = self // delegate de forma mais enxuta
         
-
+        
         // Do any additional setup after loading the view.
     }
     
     func acessButtonTapped(){
         let login : LoginVC = LoginVC()
-        login.modalPresentationStyle = .formSheet
-        navigationController?.pushViewController(login, animated: true)    }
-
+        //login.modalPresentationStyle = .formSheet
+        //navigationController?.pushViewController(login, animated: true)    }
+        
+        login.modalPresentationStyle = .pageSheet
+        present(login, animated: true ,completion: nil)
+    }
 }
