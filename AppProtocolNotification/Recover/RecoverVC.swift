@@ -13,14 +13,29 @@ class RecoverVC: UIViewController, UITextFieldDelegate {  // extensao ao protoco
     
     override func loadView() {
         screen = RecoverScreen()
-        view = screen!
+        view = screen
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        screen?.configDelegateTextField(delegate: self) // invocando delegate padrao de uitextfield
+        screen?.configTextFieldDelegate(delegate: self) // invocando delegate padrao de uitextfield
         
     }
    
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print(#function)
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        print(#function)
+        screen?.editionButtonrecover()
+    }
+
+        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print(#function)
+        textField.resignFirstResponder()// o return do teclado, baixa o teclado
+        return false
+    }
     
 }

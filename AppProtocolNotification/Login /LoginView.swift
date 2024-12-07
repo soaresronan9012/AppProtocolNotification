@@ -139,6 +139,7 @@ class LoginView: UIView {
         addelement()
         configConstraint()
         setupDismissKeyboardGesture() // baixa o teclado ao clicar no corpo da view
+
     }
     
     required init?(coder: NSCoder) {

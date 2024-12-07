@@ -22,10 +22,10 @@ class VCScreen: UIView {
         self.delegateButton = delegate// parametro
         }
     
-    private weak var delegateImage : appleUIImageProtocol?
+    private weak var delegateImagen : appleUIImageProtocol?
     
-    public func delegateImage( delegate: appleUIImageProtocol? ){
-        self.delegateImage = delegate
+    public func delegateImageFunc( delegate: appleUIImageProtocol? ){
+        self.delegateImagen = delegate
     }
 
     lazy var appleUIImage : UIImageView = {
@@ -36,13 +36,13 @@ class VCScreen: UIView {
         image.isUserInteractionEnabled = true // habilita interacao com a imagem
         return image
     }()
-    private func setupGestureRecognizerApple() {  // padrao do sistema
+    private func setupGestureRecognizerApple() {  // padrao do sistema, para click em elementos
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AppleImageTapped))
-        appleUIImage.addGestureRecognizer(tapGesture)
+        appleUIImage.addGestureRecognizer(tapGesture) // nome do elemento invocando
                 }
         @objc private func AppleImageTapped() { // acao invocada ao ser clicada
             print("imagem apple clicada!")
-            delegateImage?.tappedImage() // método do protocolo
+            delegateImagen?.tappedImage() // método do protocolo de imagem criado
         }
     
     

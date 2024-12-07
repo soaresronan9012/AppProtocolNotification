@@ -61,6 +61,16 @@ class RecoverScreen: UIView {
         
     }
     
+    public func configTextFieldDelegate( delegate:UITextFieldDelegate) { // protocol padrao textfield
+        recoverEmail.delegate = delegate // elementos a serem validados dentro desse protocol
+        }
+    
+    public func editionButtonrecover(){
+        recoverEmailButton.setTitleColor(.black, for: .normal)
+        recoverEmailButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)  
+    }
+    
+    
     lazy var labelLogo : UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -103,15 +113,14 @@ class RecoverScreen: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func configDelegateTextField(delegate: UITextFieldDelegate){  // func assinatura do protocol
-        recoverEmail.delegate = delegate   // elementos a serem validados dentro desse protocol
-        
-    }
+   
     // funcao que baixa o teclado ao tocar na tela
     private func setupDismissKeyboardGesture() {
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
             tapGesture.cancelsTouchesInView = false // Permite que outros gestos ainda sejam processados
         self.addGestureRecognizer(tapGesture)
+        
+
         }
     @objc private func dismissKeyboard() {
         self.endEditing(true) // Fecha o teclado
