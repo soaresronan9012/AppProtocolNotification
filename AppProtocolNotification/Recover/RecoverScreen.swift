@@ -65,10 +65,14 @@ class RecoverScreen: UIView {
         recoverEmail.delegate = delegate // elementos a serem validados dentro desse protocol
         }
     
-    public func editionButtonrecover(){
-        recoverEmailButton.setTitleColor(.black, for: .normal)
-        recoverEmailButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)  
-    }
+    public func editionButtonrecover(){ // se o campo estiver vazio faça, se nao, faça
+        if recoverEmail.text?.isEmpty == false{
+            recoverEmailButton.setTitleColor(.black, for: .normal)
+            recoverEmailButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+                }
+        else {
+            recoverEmailButton.setTitleColor(.systemGray, for: .normal)}
+        }
     
     
     lazy var labelLogo : UILabel = {
@@ -124,7 +128,7 @@ class RecoverScreen: UIView {
         }
     @objc private func dismissKeyboard() {
         self.endEditing(true) // Fecha o teclado
-       }
+    }
     
     func addElements() {
         addSubview(titleLabel)
