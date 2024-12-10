@@ -31,6 +31,6 @@ class InformationVC: UIViewController, acessButtonProtocol {
         //navigationController?.pushViewController(login, animated: true)    }
         
         login.modalPresentationStyle = .pageSheet
-        present(login, animated: true ,completion: nil)
+        navigationController?.pushViewController(login, animated: true)
     }
 }

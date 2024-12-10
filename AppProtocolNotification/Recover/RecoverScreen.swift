@@ -54,6 +54,7 @@ class RecoverScreen: UIView {
         button.backgroundColor = .clear  //remove visual do botao
         button.layer.borderWidth = 0     // remove bordas
         button.addTarget(self, action: #selector(recoverButtonTappet), for: .touchUpInside)
+        button.isEnabled = false
         return button
     }()
     @objc func recoverButtonTappet(){
@@ -69,10 +70,12 @@ class RecoverScreen: UIView {
         if recoverEmail.text?.isEmpty == false{
             recoverEmailButton.setTitleColor(.black, for: .normal)
             recoverEmailButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+            recoverEmailButton.isEnabled = true
                 }
         else {
-            recoverEmailButton.setTitleColor(.systemGray, for: .normal)}
-        }
+            recoverEmailButton.setTitleColor(.systemGray, for: .normal)
+            recoverEmailButton.isEnabled = false  }
+            }
     
     
     lazy var labelLogo : UILabel = {

@@ -29,7 +29,7 @@ class RecoverVC: UIViewController, UITextFieldDelegate {  // extensao ao protoco
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         print(#function)
-        screen?.editionButtonrecover()
+        screen?.editionButtonrecover() // validacao do campo
     }
 
         func textFieldShouldReturn(_ textField: UITextField) -> Bool {
