@@ -7,7 +7,18 @@
 
 import UIKit
 
+protocol recoverEmailButtonScreen : AnyObject {
+    func tappedRecoverButtonOne()
+}
+
 class RecoverScreen: UIView {
+    
+    private weak var recoverEmailButtonDelegate: recoverEmailButtonScreen?
+    
+    public func recoverEmailButtonDelegateFunc( delegate: recoverEmailButtonScreen? ){ // o parametro dessa funcao, sera o delegado enviado para a private weak delegate
+            self.recoverEmailButtonDelegate = delegate// parametro
+            }
+    
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -59,6 +70,7 @@ class RecoverScreen: UIView {
     }()
     @objc func recoverButtonTappet(){
         print("clicou enviar email ")
+        recoverEmailButtonDelegate?.tappedRecoverButtonOne()
         
     }
     
@@ -74,7 +86,7 @@ class RecoverScreen: UIView {
                 }
         else {
             recoverEmailButton.setTitleColor(.systemGray, for: .normal)
-            recoverEmailButton.isEnabled = false  }
+            recoverEmailButton.isEnabled = false }
             }
     
     
@@ -127,11 +139,18 @@ class RecoverScreen: UIView {
             tapGesture.cancelsTouchesInView = false // Permite que outros gestos ainda sejam processados
         self.addGestureRecognizer(tapGesture)
         
-
         }
     @objc private func dismissKeyboard() {
         self.endEditing(true) // Fecha o teclado
-    }
+        if recoverEmail.text?.isEmpty == false {  // se o campo estiver preenchido ok
+            recoverEmail.layer.borderColor = UIColor.red.cgColor
+            recoverEmail.layer.borderWidth = 0
+        }
+        else {  // se nao, coloca uma tarja vermelha
+            recoverEmail.layer.borderColor = UIColor.red.cgColor
+            recoverEmail.layer.borderWidth = 1
+            }
+                   }
     
     func addElements() {
         addSubview(titleLabel)

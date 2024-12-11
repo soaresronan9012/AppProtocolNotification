@@ -7,7 +7,8 @@
 
 import UIKit
 
-class RecoverVC: UIViewController, UITextFieldDelegate {  // extensao ao protocol
+class RecoverVC: UIViewController, UITextFieldDelegate, recoverEmailButtonScreen {
+    
     
     var screen : RecoverScreen?
     
@@ -19,12 +20,28 @@ class RecoverVC: UIViewController, UITextFieldDelegate {  // extensao ao protoco
     override func viewDidLoad() {
         super.viewDidLoad()
         screen?.configTextFieldDelegate(delegate: self) // invocando delegate padrao de uitextfield
+        screen?.recoverEmailButtonDelegateFunc(delegate: self) // invoca delegate do button recoverEmail
         
     }
    
     
+    func tappedRecoverButtonOne() {
+        let mensage  : MensagemVC = MensagemVC() // instancia a class alvo
+        mensage.modalPresentationStyle = .formSheet // customizacao do tamanho de tela
+        //present(device, animated: true ,completion: nil) // invoca o método
+        present(mensage, animated: true)
+             }
+    
+    
+    
+    
+    // extensao ao protocol
     func textFieldDidBeginEditing(_ textField: UITextField) {
         print(#function)
+        if screen?.recoverEmail.text?.isEmpty == true {  // validacao ao clicar, retira legenda vermelha
+            screen?.recoverEmail.layer.borderColor = UIColor.red.cgColor
+            screen?.recoverEmail.layer.borderWidth = 0
+        }
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
