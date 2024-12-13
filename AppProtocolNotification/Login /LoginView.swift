@@ -90,12 +90,42 @@ class LoginView: UIView {
         return text
     }()
     
+    lazy var imageVisibleKey: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: "eye-closed-svgrepo-com")
+        image.isUserInteractionEnabled = true // habilita interacao com a imagem
+        return image
+    }()
+    
+    private func addGestureRecognizers() {
+           let touchDownGesture = UILongPressGestureRecognizer(target: self, action: #selector(showPassword))
+        touchDownGesture.minimumPressDuration = 0.1
+            imageVisibleKey.addGestureRecognizer(touchDownGesture)
+            let touchUpGesture = UITapGestureRecognizer(target: self, action: #selector(hidePassword))
+            imageVisibleKey.addGestureRecognizer(touchUpGesture)
+       }
+         
+    @objc private func showPassword(_ sender: UILongPressGestureRecognizer) {
+        if sender.state == .began {
+            textPassword.isSecureTextEntry = false
+            imageVisibleKey.image = UIImage(named: "eye-svgrepo-com-2")
+        }
+        }
+    @objc private func hidePassword(_ sender: UITapGestureRecognizer) {
+        textPassword.isSecureTextEntry = true
+        imageVisibleKey.image = UIImage(named: "eye-closed-svgrepo-com")
+    }
+    
+   
+    
     lazy var linePasswordView : UIView = { // line
             let line = UIView()
             line.translatesAutoresizingMaskIntoConstraints = false
         line.backgroundColor = .black
             return line
         }()
+    
     
     lazy var recoverButton : UIButton = {  // botao onde aparece somente o seu texto
         let button = UIButton()
@@ -139,7 +169,7 @@ class LoginView: UIView {
         addelement()
         configConstraint()
         setupDismissKeyboardGesture() // baixa o teclado ao clicar no corpo da view
-
+        addGestureRecognizers() // habilita click na imagem de visualizador de senha
     }
     
     required init?(coder: NSCoder) {
@@ -202,6 +232,7 @@ class LoginView: UIView {
         //password
         addSubview(imagePassword)
         addSubview(textPassword)
+        addSubview(imageVisibleKey)
         addSubview(linePasswordView)
         //recoverButton
         addSubview(recoverButton)
@@ -244,6 +275,13 @@ class LoginView: UIView {
             textPassword.topAnchor.constraint(equalTo: lineNameView.topAnchor, constant: 50),
             textPassword.leadingAnchor.constraint(equalTo: imagePassword.leadingAnchor, constant: 70),
             textPassword.trailingAnchor.constraint(equalTo: viewUserName.trailingAnchor, constant: -10),
+            
+            imageVisibleKey.topAnchor.constraint(equalTo: textPassword.topAnchor),
+            imageVisibleKey.trailingAnchor.constraint(equalTo: viewUserName.trailingAnchor),
+            imageVisibleKey.widthAnchor.constraint(equalToConstant: 35),
+            imageVisibleKey.heightAnchor.constraint(equalToConstant: 35),
+            //imageVisibleKey.centerYAnchor.constraint(equalTo: viewUserName.centerYAnchor),
+            
             
             linePasswordView.topAnchor.constraint(equalTo: imagePassword.bottomAnchor, constant: 10),
             linePasswordView.leadingAnchor.constraint(equalTo: viewUserName.leadingAnchor),
