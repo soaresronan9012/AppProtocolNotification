@@ -22,6 +22,18 @@ class MensagemScreen: UIView {
         return label
     }()
     
+    lazy var textLabel: UILabel = {
+        let settingslabel = UILabel()
+        settingslabel.translatesAutoresizingMaskIntoConstraints = false
+        settingslabel.text = "a notification has been sent to your email address!"
+        settingslabel.textAlignment = .center
+        settingslabel.textAlignment = .center  // Centraliza o texto no label
+        settingslabel.font = UIFont.systemFont(ofSize: 14, weight: .bold)  // Define a fonte e o tamanho
+        settingslabel.textColor = .black // Cor do texto
+        settingslabel.numberOfLines = 0  // habilita varias linhas
+        settingslabel.isUserInteractionEnabled = true // interacao com o elemento via touch
+        return settingslabel
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,6 +48,7 @@ class MensagemScreen: UIView {
     
     func addelement() {
         addSubview(titleLabel)
+        addSubview(textLabel)
     }
     
     func setupConstraints() {
@@ -43,6 +56,10 @@ class MensagemScreen: UIView {
             titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 50),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            
+            textLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 50),
+            textLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            textLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
                         
         
         ])
