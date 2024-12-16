@@ -22,6 +22,14 @@ class MensagemScreen: UIView {
         return label
     }()
     
+    lazy var emailImage : UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "email-envelope-letter-message-fast-svgrepo-com")
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = .scaleAspectFit
+        return image
+    }()
+    
     lazy var textLabel: UILabel = {
         let settingslabel = UILabel()
         settingslabel.translatesAutoresizingMaskIntoConstraints = false
@@ -49,6 +57,7 @@ class MensagemScreen: UIView {
     func addelement() {
         addSubview(titleLabel)
         addSubview(textLabel)
+        addSubview(emailImage)
     }
     
     func setupConstraints() {
@@ -57,8 +66,14 @@ class MensagemScreen: UIView {
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             
-            textLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 50),
-            textLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            emailImage.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 50 ),
+            emailImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            //emailImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            emailImage.heightAnchor.constraint(equalToConstant: 30),
+            emailImage.widthAnchor.constraint(equalToConstant: 30),
+            
+            textLabel.topAnchor.constraint(equalTo: emailImage.topAnchor),
+            textLabel.leadingAnchor.constraint(equalTo: emailImage.trailingAnchor, constant: 5),
             textLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
                         
         

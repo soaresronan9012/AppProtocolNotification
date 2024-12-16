@@ -20,7 +20,7 @@ class RecoverVC: UIViewController, UITextFieldDelegate, recoverEmailButtonScreen
     override func viewDidLoad() {
         super.viewDidLoad()
         screen?.configTextFieldDelegate(delegate: self) // invocando delegate padrao de uitextfield
-        screen?.recoverEmailButtonDelegateFunc(delegate: self) // invoca delegate do button recoverEmail
+        screen?.recoverEmailButtonDelegate = self // invoca delegate do button recoverEmail
         
     }
    

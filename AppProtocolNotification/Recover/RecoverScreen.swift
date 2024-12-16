@@ -13,7 +13,7 @@ protocol recoverEmailButtonScreen : AnyObject {
 
 class RecoverScreen: UIView {
     
-    private weak var recoverEmailButtonDelegate: recoverEmailButtonScreen?
+    public weak var recoverEmailButtonDelegate: recoverEmailButtonScreen?
     
     public func recoverEmailButtonDelegateFunc( delegate: recoverEmailButtonScreen? ){ // o parametro dessa funcao, sera o delegado enviado para a private weak delegate
             self.recoverEmailButtonDelegate = delegate// parametro
