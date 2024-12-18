@@ -67,7 +67,7 @@ class MensagemScreen: UIView {
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             
             emailImage.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 50 ),
-            emailImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            emailImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
             //emailImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             emailImage.heightAnchor.constraint(equalToConstant: 30),
             emailImage.widthAnchor.constraint(equalToConstant: 30),
