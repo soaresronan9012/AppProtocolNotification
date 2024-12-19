@@ -110,15 +110,32 @@ class RecoverScreen: UIView {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(named: "apple-173-svgrepo-com")
+        image.isUserInteractionEnabled = true
         return image
     }()
+    private func setupGestureRecognizerAppleLogo() {  // padrao do sistema, para click em elementos
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AppleLogoTapped))
+        appleLogo.addGestureRecognizer(tapGesture) // nome do elemento invocando
+                }
+        @objc private func AppleLogoTapped() { // acao invocada ao ser clicada
+            print("imagem apple clicada!")
+             }
+    
     
     lazy var googleLogo : UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(named: "google-svgrepo-com")
+        image.isUserInteractionEnabled = true
         return image
     }()
+    private func setupGestureRecognizerGoogleLogo() {  // padrao do sistema, para click em elementos
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(googleLogoTapped))
+        googleLogo.addGestureRecognizer(tapGesture) // nome do elemento invocando
+                }
+        @objc private func googleLogoTapped() { // acao invocada ao ser clicada
+            print("imagem google clicada!")
+             }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -126,6 +143,8 @@ class RecoverScreen: UIView {
         addElements()
         setupConstraints()
         setupDismissKeyboardGesture()
+        setupGestureRecognizerAppleLogo() // metodo de click na AppleLogo
+        setupGestureRecognizerGoogleLogo() // metodo de click na googleLogo
     }
     
     required init?(coder: NSCoder) {

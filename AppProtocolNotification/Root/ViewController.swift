@@ -20,13 +20,13 @@ class ViewController: UIViewController, VCScreenButtonProtocol, appleUIImageProt
         super.viewDidLoad()
         screen?.delegate(delegate: self)// invoca metodo protocolo
         screen?.delegateImageFunc(delegate: self) // invoca metodo protocolo
-        configobserver()
+        //configobserver()
     }
     
-    func configobserver(){ // funcao que sera do observador da notification center
-        NotificationCenter.default.addObserver(self, selector: #selector(updateMacbook(notification:)), name: Notification.Name("macbook"), object: nil)
-        // notificationcenter do tipo observador, self pois sera atribuida aqui mesmo, updatemacbook sera o metodo invocado, name sera o nome da senha dada na criacao da notification center
-    }
+    //func configobserver(){ // funcao que sera do observador da notification center
+        //NotificationCenter.default.addObserver(self, selector: #selector(updateMacbook(notification:)), name: Notification.Name("macbook"), object: nil)
+        // notificationcenter do tipo observador, self pois sera atribuida aqui mesmo, updatemacbook sera o metodo invocado, name sera o nome da senha dada na criacao da notification center}
+    
     @objc func updateMacbook(notification: NSNotification){
         // view.backgroundColor = .cyan          //notification.object as? UIColor
         // ao ser chamada, o fundo se orienta pela acao da notification  as? = um do tipo UIColor

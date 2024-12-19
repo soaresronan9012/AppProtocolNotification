@@ -34,7 +34,7 @@ class LoginVC: UIViewController, loginViewProtocol {
 extension LoginVC: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool { //método habilita botao return do teclado
-        textField.resignFirstResponder()
+        textField.resignFirstResponder() // padrao do metodo
         return true
     }
     
