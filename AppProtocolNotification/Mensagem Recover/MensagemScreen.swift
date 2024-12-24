@@ -43,6 +43,18 @@ class MensagemScreen: UIView {
         return settingslabel
     }()
     
+    lazy var dialogLabel: UILabel = {
+        let settingslabel = UILabel()
+        settingslabel.translatesAutoresizingMaskIntoConstraints = false
+        settingslabel.text = "please, check your email address!"
+        settingslabel.textAlignment = .center
+        settingslabel.textAlignment = .center  // Centraliza o texto no label
+        settingslabel.font = UIFont.systemFont(ofSize: 14, weight: .bold)  // Define a fonte e o tamanho
+        settingslabel.textColor = .black // Cor do texto
+        settingslabel.numberOfLines = 0  // habilita varias linhas
+        settingslabel.isUserInteractionEnabled = true // interacao com o elemento via touch
+        return settingslabel
+    }()
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .systemGray5
@@ -58,6 +70,7 @@ class MensagemScreen: UIView {
         addSubview(titleLabel)
         addSubview(textLabel)
         addSubview(emailImage)
+        addSubview(dialogLabel)
     }
     
     func setupConstraints() {
@@ -75,6 +88,12 @@ class MensagemScreen: UIView {
             textLabel.topAnchor.constraint(equalTo: emailImage.topAnchor),
             textLabel.leadingAnchor.constraint(equalTo: emailImage.trailingAnchor, constant: 5),
             textLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            
+            dialogLabel.topAnchor.constraint(equalTo: textLabel.bottomAnchor, constant: 60),
+            //dialogLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            dialogLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 110)
+         
+            
                         
         
         ])
