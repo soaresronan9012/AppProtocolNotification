@@ -55,6 +55,15 @@ class MensagemScreen: UIView {
         settingslabel.isUserInteractionEnabled = true // interacao com o elemento via touch
         return settingslabel
     }()
+    
+    lazy var lineView: UIView = {
+        let lineView = UIView()
+        lineView.translatesAutoresizingMaskIntoConstraints = false
+        lineView.backgroundColor = .black
+        return lineView
+    }()
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .systemGray5
@@ -71,6 +80,7 @@ class MensagemScreen: UIView {
         addSubview(textLabel)
         addSubview(emailImage)
         addSubview(dialogLabel)
+        addSubview(lineView)
     }
     
     func setupConstraints() {
@@ -89,9 +99,14 @@ class MensagemScreen: UIView {
             textLabel.leadingAnchor.constraint(equalTo: emailImage.trailingAnchor, constant: 5),
             textLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             
-            dialogLabel.topAnchor.constraint(equalTo: textLabel.bottomAnchor, constant: 60),
-            //dialogLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            dialogLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 110)
+            dialogLabel.topAnchor.constraint(equalTo: textLabel.bottomAnchor, constant: 90),
+            dialogLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            //dialogLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 80),
+            
+            lineView.topAnchor.constraint(equalTo: dialogLabel.bottomAnchor, constant: 5),
+            lineView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            lineView.heightAnchor.constraint(equalToConstant: 1),
+            lineView.widthAnchor.constraint(equalToConstant: 250)
          
             
                         
