@@ -30,7 +30,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		4A20309B2CC08C3C008751B1 /* Exceptions for "AppProtocolNotification" folder in "AppProtocolNotification" target */ = {
+		4AD52F262D1E276B001FD0B5 /* Exceptions for "AppProtocolNotification" folder in "AppProtocolNotification" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -40,10 +40,10 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		4A2030752CC08C3A008751B1 /* AppProtocolNotification */ = {
+		4AD52F0C2D1E276B001FD0B5 /* AppProtocolNotification */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				4A20309B2CC08C3C008751B1 /* Exceptions for "AppProtocolNotification" folder in "AppProtocolNotification" target */,
+				4AD52F262D1E276B001FD0B5 /* Exceptions for "AppProtocolNotification" folder in "AppProtocolNotification" target */,
 			);
 			path = AppProtocolNotification;
 			sourceTree = "<group>";
@@ -78,7 +78,7 @@
 		4A20306A2CC08C3A008751B1 = {
 			isa = PBXGroup;
 			children = (
-				4A2030752CC08C3A008751B1 /* AppProtocolNotification */,
+				4AD52F0C2D1E276B001FD0B5 /* AppProtocolNotification */,
 				4A2030742CC08C3A008751B1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -109,7 +109,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				4A2030752CC08C3A008751B1 /* AppProtocolNotification */,
+				4AD52F0C2D1E276B001FD0B5 /* AppProtocolNotification */,
 			);
 			name = AppProtocolNotification;
 			packageProductDependencies = (

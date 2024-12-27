@@ -9,6 +9,7 @@ import UIKit
 
 protocol recoverEmailButtonScreen : AnyObject {
     func tappedRecoverButtonOne()
+    func tappedApplelogo()
 }
 
 class RecoverScreen: UIView {
@@ -119,6 +120,7 @@ class RecoverScreen: UIView {
                 }
         @objc private func AppleLogoTapped() { // acao invocada ao ser clicada
             print("imagem apple clicada!")
+            recoverEmailButtonDelegate?.tappedApplelogo()
              }
     
     

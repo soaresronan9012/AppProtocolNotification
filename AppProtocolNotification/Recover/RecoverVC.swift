@@ -32,6 +32,13 @@ class RecoverVC: UIViewController, UITextFieldDelegate, recoverEmailButtonScreen
         present(mensage, animated: true)
              }
     
+    func tappedApplelogo() {
+        let logo  : AppleLogoVC = AppleLogoVC() // instancia a class alvo
+        logo.modalPresentationStyle = .formSheet // customizacao do tamanho de tela
+        //present(device, animated: true ,completion: nil) // invoca o método
+        present(logo, animated: true)
+             }    
+    
     
     
     
