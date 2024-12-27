@@ -10,6 +10,7 @@ import UIKit
 protocol recoverEmailButtonScreen : AnyObject {
     func tappedRecoverButtonOne()
     func tappedApplelogo()
+    func tappedGooglelogo()
 }
 
 class RecoverScreen: UIView {
@@ -137,7 +138,7 @@ class RecoverScreen: UIView {
                 }
         @objc private func googleLogoTapped() { // acao invocada ao ser clicada
             print("imagem google clicada!")
-             }
+            recoverEmailButtonDelegate?.tappedGooglelogo()             }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

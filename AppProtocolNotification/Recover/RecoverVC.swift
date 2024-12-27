@@ -37,7 +37,13 @@ class RecoverVC: UIViewController, UITextFieldDelegate, recoverEmailButtonScreen
         logo.modalPresentationStyle = .formSheet // customizacao do tamanho de tela
         //present(device, animated: true ,completion: nil) // invoca o método
         present(logo, animated: true)
-             }    
+             }
+    
+    func tappedGooglelogo() {
+        let logoView  : GoogleVC = GoogleVC()
+        logoView.modalPresentationStyle = .formSheet
+        present(logoView, animated: true)
+    }
     
     
     
