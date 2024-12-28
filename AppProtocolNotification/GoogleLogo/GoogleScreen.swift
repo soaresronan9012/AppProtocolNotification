@@ -21,10 +21,29 @@ class GoogleScreen: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Enter your Google Account"
-        label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         label.textColor = .black
         return label
     }()
+    
+    lazy var recoverEmailGoogle: UITextField = {
+        let text = UITextField()
+        text.translatesAutoresizingMaskIntoConstraints = false
+        text.placeholder = "Enter your google email"
+        text.textColor = .systemGray
+        text.keyboardType = .emailAddress
+        text.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        //text.isUserInteractionEnabled = true  // habilita interacao de toque
+        return text
+    }()
+    
+    lazy var lineTextfieldGoogle : UIView = { // line
+        let line = UIView()
+        line.translatesAutoresizingMaskIntoConstraints = false
+        line.backgroundColor = .black
+        return line
+        }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .systemGray5
@@ -39,6 +58,8 @@ class GoogleScreen: UIView {
     func addElements() {
         addSubview(googleImage)
         addSubview(labelGoogleImage)
+        addSubview(recoverEmailGoogle)
+        addSubview(lineTextfieldGoogle)
     }
     
     func configConstraints() {
@@ -50,6 +71,15 @@ class GoogleScreen: UIView {
             
             labelGoogleImage.topAnchor.constraint(equalTo: googleImage.bottomAnchor, constant: 48),
             labelGoogleImage.centerXAnchor.constraint(equalTo: centerXAnchor),
+            
+            recoverEmailGoogle.topAnchor.constraint(equalTo: labelGoogleImage.bottomAnchor, constant: 40),
+            recoverEmailGoogle.centerXAnchor.constraint(equalTo: centerXAnchor),
+            recoverEmailGoogle.widthAnchor.constraint(equalToConstant: 280),
+            
+            lineTextfieldGoogle.topAnchor.constraint(equalTo: recoverEmailGoogle.bottomAnchor, constant: 5),
+            lineTextfieldGoogle.heightAnchor.constraint(equalToConstant: 1),
+            lineTextfieldGoogle.widthAnchor.constraint(equalToConstant: 300),
+            lineTextfieldGoogle.centerXAnchor.constraint(equalTo: centerXAnchor),
             
         ])
         
