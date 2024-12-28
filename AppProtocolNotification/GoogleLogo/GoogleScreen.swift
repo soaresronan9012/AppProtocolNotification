@@ -17,6 +17,14 @@ class GoogleScreen: UIView {
         return image
     }()
     
+    lazy var labelGoogleImage: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Enter your Google Account"
+        label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        label.textColor = .black
+        return label
+    }()
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .systemGray5
@@ -30,6 +38,7 @@ class GoogleScreen: UIView {
     
     func addElements() {
         addSubview(googleImage)
+        addSubview(labelGoogleImage)
     }
     
     func configConstraints() {
@@ -38,6 +47,9 @@ class GoogleScreen: UIView {
             googleImage.centerXAnchor.constraint(equalTo: centerXAnchor),
             googleImage.widthAnchor.constraint(equalToConstant: 90),
             googleImage.heightAnchor.constraint(equalToConstant: 90),
+            
+            labelGoogleImage.topAnchor.constraint(equalTo: googleImage.bottomAnchor, constant: 48),
+            labelGoogleImage.centerXAnchor.constraint(equalTo: centerXAnchor),
             
         ])
         
