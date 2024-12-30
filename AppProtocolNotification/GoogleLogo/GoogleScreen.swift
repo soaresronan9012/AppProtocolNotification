@@ -44,6 +44,23 @@ class GoogleScreen: UIView {
         return line
         }()
     
+    lazy var recoverEmailButtonGoogle : UIButton = {  // botao onde aparece somente o seu texto
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Send email", for: .normal)
+        button.setTitleColor(.systemGray, for: .normal)
+        button.backgroundColor = .clear  //remove visual do botao
+        button.layer.borderWidth = 0     // remove bordas
+        button.addTarget(self, action: #selector(recoverButtonTappet), for: .touchUpInside)
+        button.isEnabled = false
+        return button
+    }()
+    
+    @objc private func recoverButtonTappet() { // método ao clicar no botao
+        print("recover button tapped")
+    }
+    
+    
     
     public func configTextFieldDelegateGoogle( delegate:UITextFieldDelegate) { // protocol padrao textfield
         recoverEmailGoogle.delegate = delegate // elementos a serem validados dentro desse protocol
@@ -74,11 +91,15 @@ class GoogleScreen: UIView {
         self.endEditing(true) // Fecha o teclado
         if recoverEmailGoogle.text?.isEmpty == false {  // se o campo estiver preenchido ok
             recoverEmailGoogle.layer.borderWidth = 0
+            recoverEmailButtonGoogle.setTitleColor(.black, for: .normal)
+            recoverEmailButtonGoogle.isEnabled = true
         }
         else {  // se nao, coloca uma tarja vermelha
             recoverEmailGoogle.layer.borderColor = UIColor.red.cgColor
             recoverEmailGoogle.layer.borderWidth = 1
-            }
+            recoverEmailButtonGoogle.setTitleColor(.systemGray, for: .normal)
+            recoverEmailButtonGoogle.isEnabled = false
+        }
                    }
     
     func addElements() {
@@ -86,6 +107,7 @@ class GoogleScreen: UIView {
         addSubview(labelGoogleImage)
         addSubview(recoverEmailGoogle)
         addSubview(lineTextfieldGoogle)
+        addSubview(recoverEmailButtonGoogle)
     }
     
     func configConstraints() {
@@ -106,6 +128,11 @@ class GoogleScreen: UIView {
             lineTextfieldGoogle.heightAnchor.constraint(equalToConstant: 1),
             lineTextfieldGoogle.widthAnchor.constraint(equalToConstant: 300),
             lineTextfieldGoogle.centerXAnchor.constraint(equalTo: centerXAnchor),
+            
+            recoverEmailButtonGoogle.topAnchor.constraint(equalTo: lineTextfieldGoogle.bottomAnchor, constant: 10),
+            recoverEmailButtonGoogle.trailingAnchor.constraint(equalTo: lineTextfieldGoogle.trailingAnchor),
+            
+            
             
         ])
         

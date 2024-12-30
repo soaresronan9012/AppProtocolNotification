@@ -48,6 +48,21 @@ class AppleLogoScreen: UIView {
         return line
         }()
     
+    lazy var recoverEmailButtonApple : UIButton = {  // botao onde aparece somente o seu texto
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Send email", for: .normal)
+        button.setTitleColor(.systemGray, for: .normal)
+        button.backgroundColor = .clear  //remove visual do botao
+        button.layer.borderWidth = 0     // remove bordas
+        button.addTarget(self, action: #selector(recoverButtonTappetApple), for: .touchUpInside)
+        button.isEnabled = false
+        return button
+    }()
+    
+    @objc private func recoverButtonTappetApple() { // método ao clicar no botao
+        print("recover Applebutton tapped")
+    }
     
     override init (frame: CGRect) {
         super.init(frame: frame)
@@ -66,6 +81,7 @@ class AppleLogoScreen: UIView {
         addSubview(labelAppleImage)
         addSubview(recoverEmailApple)
         addSubview(lineTextfield)
+        addSubview(recoverEmailButtonApple)
     }
     
     // funcao que baixa o teclado ao tocar na tela
@@ -79,11 +95,15 @@ class AppleLogoScreen: UIView {
         self.endEditing(true) // Fecha o teclado
         if recoverEmailApple.text?.isEmpty == false {  // se o campo estiver preenchido ok
             recoverEmailApple.layer.borderWidth = 0
+            recoverEmailButtonApple.setTitleColor(.black, for: .normal)
+            recoverEmailButtonApple.isEnabled = true
         }
         else {  // se nao, coloca uma tarja vermelha
             recoverEmailApple.layer.borderColor = UIColor.red.cgColor
             recoverEmailApple.layer.borderWidth = 1
-            }
+            recoverEmailButtonApple.setTitleColor(.systemGray, for: .normal)
+            recoverEmailButtonApple.isEnabled = false
+        }
                    }
     
     
@@ -105,6 +125,9 @@ class AppleLogoScreen: UIView {
             lineTextfield.heightAnchor.constraint(equalToConstant: 1),
             lineTextfield.widthAnchor.constraint(equalToConstant: 300),
             lineTextfield.centerXAnchor.constraint(equalTo: centerXAnchor),
+            
+            recoverEmailButtonApple.topAnchor.constraint(equalTo: lineTextfield.bottomAnchor, constant: 10),
+            recoverEmailButtonApple.trailingAnchor.constraint(equalTo: lineTextfield.trailingAnchor),
             
         ])
     }
