@@ -37,6 +37,10 @@ class AppleLogoScreen: UIView {
         return text
     }()
     
+    public func configTextFieldDelegateApple( delegate:UITextFieldDelegate) { // protocol padrao textfield
+        recoverEmailApple.delegate = delegate // elementos a serem validados dentro desse protocol
+        }
+    
     lazy var lineTextfield : UIView = { // line
         let line = UIView()
         line.translatesAutoresizingMaskIntoConstraints = false
@@ -50,6 +54,7 @@ class AppleLogoScreen: UIView {
         backgroundColor = .systemGray5
         addElements()
         setupConstraints()
+        setupDismissKeyboardGesture()
     }
     
     required init?(coder: NSCoder) {
@@ -62,6 +67,25 @@ class AppleLogoScreen: UIView {
         addSubview(recoverEmailApple)
         addSubview(lineTextfield)
     }
+    
+    // funcao que baixa o teclado ao tocar na tela
+    private func setupDismissKeyboardGesture() {
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+            tapGesture.cancelsTouchesInView = false // Permite que outros gestos ainda sejam processados
+        self.addGestureRecognizer(tapGesture)
+        
+        }
+    @objc private func dismissKeyboard() {
+        self.endEditing(true) // Fecha o teclado
+        if recoverEmailApple.text?.isEmpty == false {  // se o campo estiver preenchido ok
+            recoverEmailApple.layer.borderWidth = 0
+        }
+        else {  // se nao, coloca uma tarja vermelha
+            recoverEmailApple.layer.borderColor = UIColor.red.cgColor
+            recoverEmailApple.layer.borderWidth = 1
+            }
+                   }
+    
     
     func setupConstraints() {
         NSLayoutConstraint.activate([

@@ -43,17 +43,43 @@ class GoogleScreen: UIView {
         line.backgroundColor = .black
         return line
         }()
+    
+    
+    public func configTextFieldDelegateGoogle( delegate:UITextFieldDelegate) { // protocol padrao textfield
+        recoverEmailGoogle.delegate = delegate // elementos a serem validados dentro desse protocol
+        }
 
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .systemGray5
         addElements()
         configConstraints()
+        setupDismissKeyboardGesture()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
+    // funcao que baixa o teclado ao tocar na tela
+    private func setupDismissKeyboardGesture() {
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+            tapGesture.cancelsTouchesInView = false // Permite que outros gestos ainda sejam processados
+        self.addGestureRecognizer(tapGesture)
+        
+        }
+    @objc private func dismissKeyboard() {
+        self.endEditing(true) // Fecha o teclado
+        if recoverEmailGoogle.text?.isEmpty == false {  // se o campo estiver preenchido ok
+            recoverEmailGoogle.layer.borderWidth = 0
+        }
+        else {  // se nao, coloca uma tarja vermelha
+            recoverEmailGoogle.layer.borderColor = UIColor.red.cgColor
+            recoverEmailGoogle.layer.borderWidth = 1
+            }
+                   }
     
     func addElements() {
         addSubview(googleImage)

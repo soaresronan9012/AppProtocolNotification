@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AppleLogoVC: UIViewController {
+class AppleLogoVC: UIViewController, UITextFieldDelegate {
     
     var screen : AppleLogoScreen? // cria var do tipo da view
     
@@ -18,10 +18,27 @@ class AppleLogoVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
+        screen?.configTextFieldDelegateApple(delegate: self) // invoca metodo delegate e atribui a esta view
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {  // metodos delegate padrao do sistema
+        print(#function)
+        if screen?.recoverEmailApple.text?.isEmpty == true {
+            screen?.recoverEmailApple.layer.borderWidth = 0
+        }
+    }
+    
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        print(#function)
+        }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print(#function)
+        textField.resignFirstResponder()// o return do teclado, baixa o teclado
+        return false
+    }
 
     
 
