@@ -12,7 +12,7 @@ class MensagemScreen: UIView {
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "e-mail enviado com sucesso!"
+        label.text = "email sent successfully!"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
         label.textAlignment = .center
