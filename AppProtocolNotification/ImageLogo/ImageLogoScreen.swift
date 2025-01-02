@@ -47,7 +47,7 @@ class ImageLogoScreen: UIView {
         settingslabel.textAlignment = .center
         settingslabel.textAlignment = .center  // Centraliza o texto no label
         settingslabel.font = UIFont.systemFont(ofSize: 14, weight: .bold)  // Define a fonte e o tamanho
-        settingslabel.textColor = .systemGray2 // Cor do texto
+        settingslabel.textColor = .black // Cor do texto
         settingslabel.numberOfLines = 0  // habilita varias linhas
         settingslabel.isUserInteractionEnabled = true // interacao com o elemento via touch
         return settingslabel
