@@ -33,7 +33,7 @@ class MensagemScreen: UIView {
     lazy var textLabel: UILabel = {
         let settingslabel = UILabel()
         settingslabel.translatesAutoresizingMaskIntoConstraints = false
-        settingslabel.text = "a notification has been sent to your email address!"
+        settingslabel.text = "a notification sent to your email address!"
         settingslabel.textAlignment = .center
         settingslabel.textAlignment = .center  // Centraliza o texto no label
         settingslabel.font = UIFont.systemFont(ofSize: 14, weight: .bold)  // Define a fonte e o tamanho
@@ -77,7 +77,7 @@ class MensagemScreen: UIView {
     
     func addelement() {
         addSubview(titleLabel)
-        addSubview(textLabel)
+        //addSubview(textLabel)
         addSubview(emailImage)
         addSubview(dialogLabel)
         addSubview(lineView)
@@ -90,16 +90,17 @@ class MensagemScreen: UIView {
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             
             emailImage.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 50 ),
-            emailImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 38),
+            //emailImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 38),
+            emailImage.centerXAnchor.constraint(equalTo: centerXAnchor),
             //emailImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            emailImage.heightAnchor.constraint(equalToConstant: 30),
-            emailImage.widthAnchor.constraint(equalToConstant: 30),
+            emailImage.heightAnchor.constraint(equalToConstant: 60),
+            emailImage.widthAnchor.constraint(equalToConstant: 60),
             
-            textLabel.topAnchor.constraint(equalTo: emailImage.topAnchor),
-            textLabel.leadingAnchor.constraint(equalTo: emailImage.trailingAnchor, constant: 5),
-            textLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            //textLabel.topAnchor.constraint(equalTo: emailImage.topAnchor),
+            //textLabel.leadingAnchor.constraint(equalTo: emailImage.trailingAnchor, constant: 5),
+            //textLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             
-            dialogLabel.topAnchor.constraint(equalTo: textLabel.bottomAnchor, constant: 90),
+            dialogLabel.topAnchor.constraint(equalTo: emailImage.bottomAnchor, constant: 40),
             dialogLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             //dialogLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 80),
             
