@@ -90,7 +90,7 @@ class imacScreen: UIView {
             imacbookImage.heightAnchor.constraint(equalToConstant: 200),
             imacbookImage.widthAnchor.constraint(equalToConstant: 200),
             
-            imacbuttonReturntButton.topAnchor.constraint(equalTo: imacbookImage.bottomAnchor, constant: 65),
+            imacbuttonReturntButton.topAnchor.constraint(equalTo: imacbookImage.bottomAnchor, constant: 85),
             imacbuttonReturntButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             imacbuttonReturntButton.widthAnchor.constraint(equalToConstant: 100),
             imacbuttonReturntButton.heightAnchor.constraint(equalToConstant: 32),

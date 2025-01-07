@@ -90,7 +90,7 @@ class ipadScreen: UIView {
                 ipadImage.heightAnchor.constraint(equalToConstant: 200),
                 ipadImage.widthAnchor.constraint(equalToConstant: 200),
                 
-                ipadbuttonReturntButton.topAnchor.constraint(equalTo: ipadImage.bottomAnchor, constant: 65),
+                ipadbuttonReturntButton.topAnchor.constraint(equalTo: ipadImage.bottomAnchor, constant: 85),
                 ipadbuttonReturntButton.centerXAnchor.constraint(equalTo: centerXAnchor),
                 ipadbuttonReturntButton.widthAnchor.constraint(equalToConstant: 100),
                 ipadbuttonReturntButton.heightAnchor.constraint(equalToConstant: 32),

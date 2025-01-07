@@ -94,7 +94,7 @@ class macbookScreen: UIView {
             macbookImage.heightAnchor.constraint(equalToConstant: 200),
             macbookImage.widthAnchor.constraint(equalToConstant: 200),
             
-            buttonReturntButton.topAnchor.constraint(equalTo: macbookImage.bottomAnchor, constant: 55),
+            buttonReturntButton.topAnchor.constraint(equalTo: macbookImage.bottomAnchor, constant: 85),
             buttonReturntButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             buttonReturntButton.widthAnchor.constraint(equalToConstant: 100),
             buttonReturntButton.heightAnchor.constraint(equalToConstant: 32),
