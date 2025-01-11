@@ -7,7 +7,9 @@
 
 import UIKit
 
-class MensagemVC: UIViewController {
+class MensagemVC: UIViewController, labelProtocol {
+    
+    
 
     var screen : MensagemScreen?
     
@@ -19,8 +21,11 @@ class MensagemVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        screen?.delegate = self
 
     }
     
-
+    func labelreturn() {
+        dismiss( animated: true, completion: nil)
+    }
 }

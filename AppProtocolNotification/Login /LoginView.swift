@@ -110,12 +110,12 @@ class LoginView: UIView {
     @objc private func showPassword(_ sender: UILongPressGestureRecognizer) {
         if sender.state == .began {
             textPassword.isSecureTextEntry = false
-            imageVisibleKey.image = UIImage(named: "eye-svgrepo-com-2")
+            imageVisibleKey.image = UIImage(named: "eye-svgrepo-com-2") // troca a imagem
         }
         }
     @objc private func hidePassword(_ sender: UITapGestureRecognizer) {
         textPassword.isSecureTextEntry = true
-        imageVisibleKey.image = UIImage(named: "eye-closed-svgrepo-com")
+        imageVisibleKey.image = UIImage(named: "eye-closed-svgrepo-com") // troca a imagem
     }
     
    
@@ -138,7 +138,7 @@ class LoginView: UIView {
         button.addTarget(self, action: #selector(recoverButtonTappet), for: .touchUpInside)
         return button
     }()
-    @objc func recoverButtonTappet(){
+    @objc func recoverButtonTappet(){ // acao do botao ao ser clicado
         print("clicou recuperar senha ")
         delegateRecoverButton?.tappedRecoverButtonProtocol()
     }

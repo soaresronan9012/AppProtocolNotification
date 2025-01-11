@@ -7,8 +7,13 @@
 
 import UIKit
 
+protocol labelProtocol: AnyObject {
+    func labelreturn()
+    }
+
 class MensagemScreen: UIView {
     
+    weak var delegate: labelProtocol?
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -55,6 +60,16 @@ class MensagemScreen: UIView {
         settingslabel.isUserInteractionEnabled = true // interacao com o elemento via touch
         return settingslabel
     }()
+    private func setupGestureRecognizerlabel() {  // padrao do sistema
+                let tapGesture = UITapGestureRecognizer(target: self, action: #selector(labelTapped))
+        dialogLabel.addGestureRecognizer(tapGesture) // elemento chama
+                    }
+            @objc private func labelTapped() { // acao invocada ao ser clicada
+                print("imagem apple clicada!")
+                delegate?.labelreturn()
+                
+            }
+    
     
     lazy var lineView: UIView = {
         let lineView = UIView()
@@ -69,6 +84,7 @@ class MensagemScreen: UIView {
         backgroundColor = .systemGray5
         addelement()
         setupConstraints()
+        setupGestureRecognizerlabel()
     }
     
     required init?(coder: NSCoder) {
