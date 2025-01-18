@@ -58,8 +58,7 @@ class GoogleScreen: UIView {
     
     @objc private func recoverButtonTappet() { // método ao clicar no botao
         print("recover button tapped")
-    }
-    
+        }
     
     
     public func configTextFieldDelegateGoogle( delegate:UITextFieldDelegate) { // protocol padrao textfield

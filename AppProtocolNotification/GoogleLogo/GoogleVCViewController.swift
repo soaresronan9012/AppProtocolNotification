@@ -20,9 +20,8 @@ class GoogleVC: UIViewController, UITextFieldDelegate { // herda o delegate
         super.viewDidLoad()
         screen?.configTextFieldDelegateGoogle(delegate: self) // invoca o delegate para a respectiva view
     }
-    
 
-        
+    
         func textFieldDidBeginEditing(_ textField: UITextField) {  // metodos delegate padrao do sistema
             print(#function)
             if screen?.recoverEmailGoogle.text?.isEmpty == true {

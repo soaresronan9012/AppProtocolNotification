@@ -62,7 +62,9 @@ class AppleLogoScreen: UIView {
     
     @objc private func recoverButtonTappetApple() { // método ao clicar no botao
         print("recover Applebutton tapped")
+    
     }
+    
     
     override init (frame: CGRect) {
         super.init(frame: frame)
