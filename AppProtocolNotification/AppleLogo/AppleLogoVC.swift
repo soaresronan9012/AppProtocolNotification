@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AppleLogoVC: UIViewController, UITextFieldDelegate {
+class AppleLogoVC: UIViewController, UITextFieldDelegate, SendProtocol {
     
     var screen : AppleLogoScreen? // cria var do tipo da view
     
@@ -19,6 +19,7 @@ class AppleLogoVC: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         screen?.configTextFieldDelegateApple(delegate: self) // invoca metodo delegate e atribui a esta view
+        screen?.delegate = self // atribuiu o delegate a esta viewcontroller
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {  // metodos delegate padrao do sistema
@@ -39,6 +40,16 @@ class AppleLogoVC: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()// o return do teclado, baixa o teclado
         return false
     }
+    
+    func sendApple() {
+        let send  : EmailSendVC = EmailSendVC()
+        send.modalPresentationStyle = .formSheet
+        present(send, animated: true)
+    }
+    func sendGoogle() {
+        
+    }
+    
 
     
 

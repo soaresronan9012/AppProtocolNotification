@@ -14,7 +14,7 @@ class EmailSendScreen: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
         label.textAlignment = .center
-        label.text = "Email send"
+        label.text = "Email send!!!"
         label.font = UIFont.systemFont(ofSize: 40, weight: .bold)
         return label
     }()
@@ -23,6 +23,7 @@ class EmailSendScreen: UIView {
         super.init(frame: frame)
         backgroundColor = .systemGray5
         addElements()
+        setupConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -35,8 +36,10 @@ class EmailSendScreen: UIView {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-        phraseLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 60),
+        phraseLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 120),
         phraseLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+        phraseLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
+        phraseLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30)
         
             ])
     }

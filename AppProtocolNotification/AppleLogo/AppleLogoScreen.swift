@@ -6,8 +6,13 @@
 //
 
 import UIKit
-
+protocol SendProtocol: AnyObject {
+    func sendApple()
+    func sendGoogle()
+    }
 class AppleLogoScreen: UIView {
+    
+    public weak var delegate: SendProtocol?
     
     lazy var appleImage: UIImageView = {
         let image = UIImageView()
@@ -62,6 +67,7 @@ class AppleLogoScreen: UIView {
     
     @objc private func recoverButtonTappetApple() { // método ao clicar no botao
         print("recover Applebutton tapped")
+        delegate?.sendApple()
     
     }
     

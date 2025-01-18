@@ -8,6 +8,8 @@
 import UIKit
 
 class GoogleScreen: UIView {
+    
+    public weak var delegate: SendProtocol?
 
     lazy var googleImage: UIImageView = {
         let image = UIImageView()
@@ -58,6 +60,7 @@ class GoogleScreen: UIView {
     
     @objc private func recoverButtonTappet() { // método ao clicar no botao
         print("recover button tapped")
+        delegate?.sendGoogle()
         }
     
     
