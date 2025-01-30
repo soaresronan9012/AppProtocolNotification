@@ -132,7 +132,7 @@ class LoginView: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("recover / create account", for: .normal)
-        button.setTitleColor(.systemGray, for: .normal)
+        button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .clear  //remove visual do botao
         button.layer.borderWidth = 0     // remove bordas
         button.addTarget(self, action: #selector(recoverButtonTappet), for: .touchUpInside)
