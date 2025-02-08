@@ -18,6 +18,13 @@ class EmailSendScreen: UIView {
         label.font = UIFont.systemFont(ofSize: 40, weight: .bold)
         return label
     }()
+    
+    lazy var imageCheck: UIImageView = {
+        let img = UIImageView()
+        img.translatesAutoresizingMaskIntoConstraints = false
+        img.image = UIImage(named: "check-read-svgrepo-com" )
+        return img
+        }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,6 +39,7 @@ class EmailSendScreen: UIView {
     
     private func addElements() {
         addSubview(phraseLabel)
+        addSubview(imageCheck)
         }
     
     private func setupConstraints() {
@@ -39,7 +47,12 @@ class EmailSendScreen: UIView {
         phraseLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 120),
         phraseLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
         phraseLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
-        phraseLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30)
+        phraseLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
+        
+        imageCheck.topAnchor.constraint(equalTo: phraseLabel.bottomAnchor, constant: 60),
+        imageCheck.centerXAnchor.constraint(equalTo: centerXAnchor),
+        imageCheck.widthAnchor.constraint(equalToConstant: 60),
+        imageCheck.heightAnchor.constraint(equalToConstant: 60)
         
             ])
     }
