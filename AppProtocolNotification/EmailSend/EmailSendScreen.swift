@@ -22,7 +22,7 @@ class EmailSendScreen: UIView {
     lazy var imageCheck: UIImageView = {
         let img = UIImageView()
         img.translatesAutoresizingMaskIntoConstraints = false
-        img.image = UIImage(named: "check-read-svgrepo-com" )
+        img.image = UIImage(named: "email-mail-svgrepo-com" )
         return img
         }()
 
@@ -49,10 +49,10 @@ class EmailSendScreen: UIView {
         phraseLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
         phraseLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
         
-        imageCheck.topAnchor.constraint(equalTo: phraseLabel.bottomAnchor, constant: 60),
+        imageCheck.topAnchor.constraint(equalTo: phraseLabel.bottomAnchor, constant: 80),
         imageCheck.centerXAnchor.constraint(equalTo: centerXAnchor),
-        imageCheck.widthAnchor.constraint(equalToConstant: 60),
-        imageCheck.heightAnchor.constraint(equalToConstant: 60)
+        imageCheck.widthAnchor.constraint(equalToConstant: 70),
+        imageCheck.heightAnchor.constraint(equalToConstant: 70)
         
             ])
     }
