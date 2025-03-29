@@ -41,7 +41,7 @@ class RecoverScreen: UIView {
        // return view
    // }()
     
-    lazy var recoverEmail: UITextField = {
+    lazy var emailCreate: UITextField = {
         let text = UITextField()
         text.translatesAutoresizingMaskIntoConstraints = false
         text.placeholder = "Enter your email"
@@ -59,10 +59,30 @@ class RecoverScreen: UIView {
         return line
         }()
     
+    lazy var passwordCreate: UITextField = {
+        let text = UITextField()
+        text.translatesAutoresizingMaskIntoConstraints = false
+        text.placeholder = "create your password"
+        text.textColor = .systemGray
+        text.keyboardType = .numberPad
+        text.isSecureTextEntry = true
+        text.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        //text.isUserInteractionEnabled = true  // habilita interacao de toque
+        return text
+    }()
+    
+    lazy var linePasswordView : UIView = { // line
+        let line = UIView()
+        line.translatesAutoresizingMaskIntoConstraints = false
+        line.backgroundColor = .black
+        return line
+        }()
+    
+    
     lazy var recoverEmailButton : UIButton = {  // botao onde aparece somente o seu texto
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Send email", for: .normal)
+        button.setTitle("create account", for: .normal)
         button.setTitleColor(.systemGray, for: .normal)
         button.backgroundColor = .clear  //remove visual do botao
         button.layer.borderWidth = 0     // remove bordas
@@ -77,11 +97,12 @@ class RecoverScreen: UIView {
     }
     
     public func configTextFieldDelegate( delegate:UITextFieldDelegate) { // protocol padrao textfield
-        recoverEmail.delegate = delegate // elementos a serem validados dentro desse protocol
+        emailCreate.delegate = delegate // elementos a serem validados dentro desse protocol
+        passwordCreate.delegate = delegate
         }
     
     public func editionButtonrecover(){ // se o campo estiver vazio faça, se nao, faça
-        if recoverEmail.text?.isEmpty == false{
+        if emailCreate.text?.isEmpty == false && passwordCreate.text?.isEmpty == false{
             recoverEmailButton.setTitleColor(.black, for: .normal)
             recoverEmailButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
             recoverEmailButton.isEnabled = true
@@ -89,7 +110,17 @@ class RecoverScreen: UIView {
         else {
             recoverEmailButton.setTitleColor(.systemGray, for: .normal)
             recoverEmailButton.isEnabled = false }
+        
+        // gerador de advertencia visual, caso algum campo fique vazio
+        if emailCreate.text?.isEmpty == true {
+            emailCreate.layer.borderColor = UIColor.red.cgColor
+            emailCreate.layer.borderWidth = 1
             }
+        if passwordCreate.text?.isEmpty == true{
+            passwordCreate.layer.borderColor = UIColor.red.cgColor
+            passwordCreate.layer.borderWidth = 1
+            }
+    }
     
     
     lazy var labelLogo : UILabel = {
@@ -164,21 +195,33 @@ class RecoverScreen: UIView {
         }
     @objc private func dismissKeyboard() {
         self.endEditing(true) // Fecha o teclado
-        if recoverEmail.text?.isEmpty == false {  // se o campo estiver preenchido ok
-            recoverEmail.layer.borderColor = UIColor.red.cgColor
-            recoverEmail.layer.borderWidth = 0
-        }
-        else {  // se nao, coloca uma tarja vermelha
-            recoverEmail.layer.borderColor = UIColor.red.cgColor
-            recoverEmail.layer.borderWidth = 1
+        if emailCreate.text?.isEmpty == false  {  // se o campo estiver preenchido ok
+            emailCreate.layer.borderColor = UIColor.red.cgColor
+            emailCreate.layer.borderWidth = 0
             }
+        else {  // se nao, coloca uma tarja vermelha
+            emailCreate.layer.borderColor = UIColor.red.cgColor
+            emailCreate.layer.borderWidth = 1
+             }
+        
+        if passwordCreate.text?.isEmpty == false {
+            passwordCreate.layer.borderColor = UIColor.red.cgColor
+            passwordCreate.layer.borderWidth = 0
+        }
+        else{
+            passwordCreate.layer.borderColor = UIColor.red.cgColor
+            passwordCreate.layer.borderWidth = 1
+        }
+        
                    }
     
     func addElements() {
         addSubview(titleLabel)
         //addSubview(viewline)
-        addSubview(recoverEmail)
+        addSubview(emailCreate)
         addSubview(lineView)
+        addSubview(passwordCreate)
+        addSubview(linePasswordView)
         addSubview(recoverEmailButton)
         addSubview(labelLogo)
         addSubview(logoView)
@@ -197,16 +240,26 @@ class RecoverScreen: UIView {
             //viewline.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             //viewline.heightAnchor.constraint(equalToConstant: 1),
             
-            recoverEmail.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 101),
-            recoverEmail.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            recoverEmail.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
+            emailCreate.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 101),
+            emailCreate.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            emailCreate.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
             
-            lineView.topAnchor.constraint(equalTo: recoverEmail.bottomAnchor, constant: 10),
+            lineView.topAnchor.constraint(equalTo: emailCreate.bottomAnchor, constant: 10),
             lineView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             lineView.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
             lineView.heightAnchor.constraint(equalToConstant: 1),
             
-            recoverEmailButton.topAnchor.constraint(equalTo: lineView.bottomAnchor, constant: 10),
+            passwordCreate.topAnchor.constraint(equalTo: lineView.bottomAnchor, constant: 45),
+            passwordCreate.leadingAnchor.constraint(equalTo: emailCreate.leadingAnchor),
+            passwordCreate.trailingAnchor.constraint(equalTo: emailCreate.trailingAnchor),
+            
+            linePasswordView.topAnchor.constraint(equalTo: passwordCreate.bottomAnchor, constant: 10),
+            linePasswordView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            linePasswordView.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
+            linePasswordView.heightAnchor.constraint(equalToConstant: 1),
+            
+            
+            recoverEmailButton.topAnchor.constraint(equalTo: linePasswordView.bottomAnchor, constant: 15),
             recoverEmailButton.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
             
             labelLogo.topAnchor.constraint(equalTo: recoverEmailButton.bottomAnchor, constant: 90),

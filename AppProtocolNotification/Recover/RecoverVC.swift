@@ -54,10 +54,7 @@ class RecoverVC: UIViewController, UITextFieldDelegate, recoverEmailButtonScreen
     // extensao ao protocol
     func textFieldDidBeginEditing(_ textField: UITextField) {
         print(#function)
-        if screen?.recoverEmail.text?.isEmpty == true {  // validacao ao clicar, retira legenda vermelha
-            screen?.recoverEmail.layer.borderColor = UIColor.red.cgColor
-            screen?.recoverEmail.layer.borderWidth = 0
-        }
+        habilitField()
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -71,4 +68,13 @@ class RecoverVC: UIViewController, UITextFieldDelegate, recoverEmailButtonScreen
         return false
     }
     
+    func  habilitField () {  // funcao que desabilita advertencia de campo incompleto
+        if screen?.passwordCreate.text?.isEmpty == true{
+            //screen?.textName.layer.borderColor = UIColor.red.cgColor
+            screen?.passwordCreate.layer.borderWidth = 0
+        }
+        if screen?.emailCreate.text?.isEmpty == true {
+            //screen?.textPassword.layer.borderColor = UIColor.red.cgColor
+            screen?.emailCreate.layer.borderWidth = 0        }
+    }
 }
