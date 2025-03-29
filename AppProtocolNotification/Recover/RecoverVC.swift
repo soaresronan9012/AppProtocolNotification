@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class RecoverVC: UIViewController, UITextFieldDelegate, recoverEmailButtonScreen {
     
+    var auth: Auth?  // var do tipo autentificacao
     
     var screen : RecoverScreen?
     
@@ -21,6 +23,7 @@ class RecoverVC: UIViewController, UITextFieldDelegate, recoverEmailButtonScreen
         super.viewDidLoad()
         screen?.configTextFieldDelegate(delegate: self) // invocando delegate padrao de uitextfield
         screen?.recoverEmailButtonDelegate = self // invoca delegate do button recoverEmail
+        auth = Auth.auth() // instancia da var authentic do firebase
         
     }
    

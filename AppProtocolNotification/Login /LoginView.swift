@@ -86,7 +86,7 @@ class LoginView: UIView {
         text.placeholder = "Password"
         text.textColor = .systemGray
         text.isSecureTextEntry = true
-        text.keyboardType = .default
+        text.keyboardType = .numberPad
         text.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         return text
     }()
