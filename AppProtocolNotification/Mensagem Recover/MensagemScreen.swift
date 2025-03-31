@@ -17,7 +17,7 @@ class MensagemScreen: UIView {
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "email sent successfully!"
+        label.text = "completed registration!"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
         label.textAlignment = .center
@@ -29,7 +29,7 @@ class MensagemScreen: UIView {
     
     lazy var emailImage : UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "email-envelope-letter-message-fast-svgrepo-com")
+        image.image = UIImage(named: "user-plus-01-svgrepo-com")
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFit
         return image

@@ -24,7 +24,7 @@ class RecoverScreen: UIView {
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Recover password"
+        label.text = "New account"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
         label.textAlignment = .center
@@ -82,7 +82,7 @@ class RecoverScreen: UIView {
     lazy var recoverEmailButton : UIButton = {  // botao onde aparece somente o seu texto
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("create account", for: .normal)
+        button.setTitle("finish", for: .normal)
         button.setTitleColor(.systemGray, for: .normal)
         button.backgroundColor = .clear  //remove visual do botao
         button.layer.borderWidth = 0     // remove bordas
