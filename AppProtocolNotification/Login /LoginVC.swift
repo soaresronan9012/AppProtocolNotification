@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginVC: UIViewController, loginViewProtocol {
     
@@ -24,10 +25,21 @@ class LoginVC: UIViewController, loginViewProtocol {
     }
     
     func tappedButtonProtocol() {
-        let device  : DeviceVC = DeviceVC() // instancia a class alvo
-        device.modalPresentationStyle = .formSheet // customizacao do tamanho de tela
-        //present(device, animated: true ,completion: nil) // invoca o método
-        navigationController?.pushViewController(device, animated: true)
+        
+        
+        let email: String = screen?.textName.text ?? ""
+        let password: String = screen?.textPassword.text ?? ""
+
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            if let error = error {
+                print("Erro ao criar conta: \(error.localizedDescription)")
+                } else {
+                    print("Conta criada com sucesso!")
+                    let device  : DeviceVC = DeviceVC() // instancia a class alvo
+                    device.modalPresentationStyle = .formSheet // customizacao do tamanho de tela
+                    //present(device, animated: true ,completion: nil) // invoca o método
+                    self.navigationController?.pushViewController(device, animated: true)                } }
+        
              }
     }
     

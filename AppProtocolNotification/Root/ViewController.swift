@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class ViewController: UIViewController, VCScreenButtonProtocol, appleUIImageProtocol {
     
     var screen : VCScreen? // var do tipo da view
