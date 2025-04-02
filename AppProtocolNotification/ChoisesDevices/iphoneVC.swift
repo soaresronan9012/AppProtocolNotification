@@ -19,7 +19,7 @@ class iphoneVC: UIViewController, iphonebookScreenButtonProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         screen?.delegateReturnButtonFuncIphone( delegate: self)
-            
+        overrideUserInterfaceStyle = .light
         }
 
         

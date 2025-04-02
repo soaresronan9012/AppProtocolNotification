@@ -25,7 +25,7 @@ class RecoverVC: UIViewController, UITextFieldDelegate, recoverEmailButtonScreen
         screen?.configTextFieldDelegate(delegate: self) // invocando delegate padrao de uitextfield
         screen?.recoverEmailButtonDelegate = self // invoca delegate do button recoverEmail
         auth = Auth.auth() // instancia da var authentic do firebase
-        
+        overrideUserInterfaceStyle = .light
     }
     
 //    func createAccountFirebase() { // funcao de criacao de conta no FIREBASE

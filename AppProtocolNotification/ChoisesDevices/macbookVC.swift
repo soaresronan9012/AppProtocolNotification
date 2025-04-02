@@ -22,7 +22,7 @@ class macbookVC: UIViewController, macbookScreenButtonProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         screen?.delegateReturnButtonFunc(delegate: self)
-    }
+        overrideUserInterfaceStyle = .light    }
     
     
     func tappedReturnButtonProtocol() {

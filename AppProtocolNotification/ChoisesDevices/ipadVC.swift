@@ -20,11 +20,12 @@ class ipadVC: UIViewController, ipadbookScreenButtonProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        overrideUserInterfaceStyle = .light
     }
     
     func tappedReturnButtonProtocolipad() {
         dismiss( animated: true, completion: nil)
+        
     }
     
     

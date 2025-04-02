@@ -22,7 +22,7 @@ class LoginVC: UIViewController, loginViewProtocol {
         screen?.delegateButtonFunc(delegate: self)// invoca metodo que habilita delegate
         screen?.configDelegateTextField(delegate: self)  // invoca metodo que habilita esse delegate
         screen?.delegateRecoverButtonFunc(delegate: self) // metodo que habilita delegate do recoverpassword
-    }
+        overrideUserInterfaceStyle = .light    }
     
     func tappedButtonProtocol() {
         

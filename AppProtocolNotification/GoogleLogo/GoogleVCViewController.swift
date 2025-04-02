@@ -29,7 +29,7 @@ class GoogleVC: UIViewController, UITextFieldDelegate, SendProtocol {
         super.viewDidLoad()
         screen?.configTextFieldDelegateGoogle(delegate: self) // invoca o delegate para a respectiva view
         screen?.delegate = self
-    }
+        overrideUserInterfaceStyle = .light    }
 
     
         func textFieldDidBeginEditing(_ textField: UITextField) {  // metodos delegate padrao do sistema

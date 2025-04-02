@@ -23,7 +23,7 @@ class DeviceVC: UIViewController, macbookProtocol, imacbookProtocol, iphoneProto
         screen?.delegateimacbookfunc(delegate: self)
         screen?.delegateiphonefunc(delegate: self)
         screen?.delegateipadfunc(delegate: self)
-    }
+        overrideUserInterfaceStyle = .light    }
     
     
     func macbookTappedProtocol(){

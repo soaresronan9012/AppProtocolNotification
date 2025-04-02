@@ -19,7 +19,7 @@ class imacVC: UIViewController, imacbookScreenButtonProtocol { // extende para o
     override func viewDidLoad() {
         super.viewDidLoad()
         screen?.delegateReturnButtonFuncImac(delegate: self) // passa a view como parametro dessa func do protocol
-            
+        overrideUserInterfaceStyle = .light
         }
 
     

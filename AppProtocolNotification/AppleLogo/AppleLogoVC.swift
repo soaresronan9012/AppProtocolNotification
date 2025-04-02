@@ -20,7 +20,7 @@ class AppleLogoVC: UIViewController, UITextFieldDelegate, SendProtocol {
         super.viewDidLoad()
         screen?.configTextFieldDelegateApple(delegate: self) // invoca metodo delegate e atribui a esta view
         screen?.delegate = self // atribuiu o delegate a esta viewcontroller
-    }
+        overrideUserInterfaceStyle = .light    }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {  // metodos delegate padrao do sistema
         print(#function)

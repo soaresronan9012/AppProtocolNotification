@@ -22,7 +22,7 @@ class ViewController: UIViewController, VCScreenButtonProtocol, appleUIImageProt
         screen?.delegate(delegate: self)// invoca metodo protocolo
         screen?.delegateImageFunc(delegate: self) // invoca metodo protocolo
         //configobserver()
-    }
+        overrideUserInterfaceStyle = .light    }
     
     //func configobserver(){ // funcao que sera do observador da notification center
         //NotificationCenter.default.addObserver(self, selector: #selector(updateMacbook(notification:)), name: Notification.Name("macbook"), object: nil)

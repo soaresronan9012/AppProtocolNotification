@@ -20,7 +20,7 @@ class InformationVC: UIViewController, acessButtonProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         screem?.acessButtonDelegate = self // delegate de forma mais enxuta
-        
+        overrideUserInterfaceStyle = .light
         
         // Do any additional setup after loading the view.
     }

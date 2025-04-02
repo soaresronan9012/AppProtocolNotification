@@ -22,7 +22,7 @@ class MensagemVC: UIViewController, labelProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         screen?.delegate = self
-
+        overrideUserInterfaceStyle = .light
     }
     
     func labelreturn() {
