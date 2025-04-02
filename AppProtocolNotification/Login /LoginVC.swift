@@ -33,6 +33,9 @@ class LoginVC: UIViewController, loginViewProtocol {
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
             if let error = error {
                 print("Erro ao criar conta: \(error.localizedDescription)")
+                self.screen?.loginButton.isEnabled = false
+                self.screen?.loginButton.backgroundColor = .systemGray
+                self.screen?.loginButton.layer.borderColor = UIColor.systemGray.cgColor
                 } else {
                     print("Conta criada com sucesso!")
                     let device  : DeviceVC = DeviceVC() // instancia a class alvo
