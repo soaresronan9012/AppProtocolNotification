@@ -26,6 +26,8 @@ class MensagemVC: UIViewController, labelProtocol {
     }
     
     func labelreturn() {
-        dismiss( animated: true, completion: nil)
-    }
+        //dismiss( animated: true, completion: nil)
+        let lg = LoginVC()
+          lg.modalPresentationStyle = .pageSheet
+        present(lg, animated: true ,completion: nil)   }
 }

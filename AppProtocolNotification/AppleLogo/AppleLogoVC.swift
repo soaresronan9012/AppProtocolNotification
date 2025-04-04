@@ -6,7 +6,8 @@
 //
 
 import UIKit
-
+import FirebaseAuth
+import AuthenticationServices
 class AppleLogoVC: UIViewController, UITextFieldDelegate, SendProtocol {
     
     var screen : AppleLogoScreen? // cria var do tipo da view

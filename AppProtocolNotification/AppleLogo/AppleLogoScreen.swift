@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+
 protocol SendProtocol: AnyObject {
     func sendApple()
     func sendGoogle()
