@@ -11,27 +11,33 @@ import FirebaseAuth
 class LoginVC: UIViewController, loginViewProtocol {
     
     var screen: LoginView?
+    var alert: Alert? // var do tipo dessa class
     
     override func loadView() {
         screen = LoginView()
         view = screen
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         screen?.delegateButtonFunc(delegate: self)// invoca metodo que habilita delegate
         screen?.configDelegateTextField(delegate: self)  // invoca metodo que habilita esse delegate
         screen?.delegateRecoverButtonFunc(delegate: self) // metodo que habilita delegate do recoverpassword
-        overrideUserInterfaceStyle = .light    }
+        alert = Alert(controller: self) // instancia da class ALERT
+        overrideUserInterfaceStyle = .light
+    }
+    
     
     func tappedButtonProtocol() {
-        
         
         let email: String = screen?.textName.text ?? ""
         let password: String = screen?.textPassword.text ?? ""
 
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
             if let error = error {
+                // configuracao do Alert na autentificacao
+                self.alert?.getAlert(titulo: "Atenção", mensagem: "Usuário não Cadastrado ou Senha Incorreta")
                 print("Erro ao criar conta: \(error.localizedDescription)")
                 self.screen?.loginButton.isEnabled = false
                 self.screen?.loginButton.backgroundColor = .systemGray

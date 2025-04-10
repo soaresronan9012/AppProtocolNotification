@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import FirebaseAuth
+import FirebaseAuth // biblioteca responsavel por autentificacao
 
 class RecoverVC: UIViewController, UITextFieldDelegate, recoverEmailButtonScreen {
     
