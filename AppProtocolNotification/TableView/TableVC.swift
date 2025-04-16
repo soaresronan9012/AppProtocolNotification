@@ -7,23 +7,38 @@
 
 import UIKit
 
-class TableVC: UIViewController {
+class TableVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    // funcoes do tipo da assinatura do protocolo tableview
+    // funcao do numero de linhas
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    // funcao dos dados desta tabela
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let color : [UIColor] = [.orange,.red,.purple,.brown]  // um array de cores para ilustrar a tabela
+        let cell : UITableViewCell = UITableViewCell()  // var do tipo celula da tabela
+        cell.backgroundColor = color[indexPath.row]
+        return cell
+    }
+    
+   
+    var screen : TableScreen?
+    
+    override func loadView() {
+        screen = TableScreen()
+        view = screen
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        screen?.configtableviewDelegateAndDataSource(delegate: self, dataSource: self) // assinatura do delegate
 
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+   
 
 }

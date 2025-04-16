@@ -24,8 +24,13 @@ class imacVC: UIViewController, imacbookScreenButtonProtocol { // extende para o
 
     
     func tappedReturnButtonProtocolimac() {  // metodo do protocolo
-        dismiss(animated: true, completion: nil)
+        //dismiss(animated: true, completion: nil)
         //só funciona em viewController
+        
+        // invocando tableView
+        let table = TableVC()
+          table.modalPresentationStyle = .pageSheet
+        present(table, animated: true ,completion: nil)
     }
     
 
