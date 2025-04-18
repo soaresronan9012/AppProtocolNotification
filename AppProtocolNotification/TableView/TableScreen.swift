@@ -25,7 +25,7 @@ class TableScreen: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+    // metodo padrao do tableDelegate
     func configtableviewDelegateAndDataSource(delegate: UITableViewDelegate,dataSource: UITableViewDataSource){
         tableView.delegate = delegate
         tableView.dataSource = dataSource

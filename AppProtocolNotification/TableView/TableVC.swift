@@ -23,6 +23,8 @@ class TableVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    // ambas funcoes acima sao padrao do sistema e precisam ser implementadas
+    
    
     var screen : TableScreen?
     
