@@ -19,7 +19,7 @@ class TableVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let color : [UIColor] = [.orange,.red,.purple,.brown]  // um array de cores para ilustrar a tabela
         let cell : UITableViewCell = UITableViewCell()  // var do tipo celula da tabela
-        cell.backgroundColor = color[indexPath.row]
+        cell.backgroundColor = color[indexPath.row] // as cores das celulas, irao condizer com o array de cores
         return cell
     }
     
