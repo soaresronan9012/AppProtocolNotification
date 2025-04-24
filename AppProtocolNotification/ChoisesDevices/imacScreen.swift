@@ -63,6 +63,7 @@ class imacScreen: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .systemGray4
+        //backgroundColor = UIColor.systemGray4.withAlphaComponent(0.8) // transparencia
         addElements()
         configconstrain()
         

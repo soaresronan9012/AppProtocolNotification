@@ -12,7 +12,7 @@ class TableVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     // funcoes do tipo da assinatura do protocolo tableview
     // funcao do numero de linhas
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 4 // 4 linhas nessa tabela
     }
     
     // funcao dos dados desta tabela
