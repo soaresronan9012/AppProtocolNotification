@@ -19,7 +19,14 @@ class firstCellTableViewCell: UITableViewCell {
             label.translatesAutoresizingMaskIntoConstraints = false
             return label
         }()
+    
+        private let imagemCell: UIImageView = {
+            let img = UIImageView()
+            img.translatesAutoresizingMaskIntoConstraints = false
+            return img
+        }()
 
+    
         // Inicializador principal da célula
         override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
             super.init(style: style, reuseIdentifier: reuseIdentifier)
