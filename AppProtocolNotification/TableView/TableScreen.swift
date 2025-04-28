@@ -9,7 +9,7 @@ import UIKit
 
 class TableScreen: UIView {
     
-    lazy var tableView: UITableView = {
+    lazy var tableView: UITableView = { // elemento do tioi tableview
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .white
@@ -26,6 +26,7 @@ class TableScreen: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     // metodo padrao do tableDelegate
+    // delega acoes para quem asssinar, a ViewController
     func configtableviewDelegateAndDataSource(delegate: UITableViewDelegate,dataSource: UITableViewDataSource){
         tableView.delegate = delegate
         tableView.dataSource = dataSource
@@ -38,7 +39,7 @@ class TableScreen: UIView {
     
     func configConstraints(){
         NSLayoutConstraint.activate([
-            
+            // dimensoes da tableView na tela inserida
             tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             tableView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
             tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
