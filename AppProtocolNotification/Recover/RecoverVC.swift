@@ -10,7 +10,7 @@ import FirebaseAuth // biblioteca responsavel por autentificacao
 
 class RecoverVC: UIViewController, UITextFieldDelegate, recoverEmailButtonScreen {
     
-    
+    var alert:Alert? // var do tipo Alert Class
     var auth: Auth?  // var do tipo autentificacao
     
     var screen : RecoverScreen?
@@ -26,6 +26,7 @@ class RecoverVC: UIViewController, UITextFieldDelegate, recoverEmailButtonScreen
         screen?.recoverEmailButtonDelegate = self // invoca delegate do button recoverEmail
         auth = Auth.auth() // instancia da var authentic do firebase
         overrideUserInterfaceStyle = .light
+        alert = Alert(controller: self) // atribuiu a essa VC
     }
     
 //    func createAccountFirebase() { // funcao de criacao de conta no FIREBASE
@@ -55,7 +56,8 @@ class RecoverVC: UIViewController, UITextFieldDelegate, recoverEmailButtonScreen
         auth?.createUser(withEmail: email, password: password) { result, error in
             if let error = error {
                 print("Erro ao criar conta: \(error.localizedDescription)")
-            } else {
+                }
+            else {
                 print("Conta criada com sucesso")
             }
         }
@@ -76,6 +78,28 @@ class RecoverVC: UIViewController, UITextFieldDelegate, recoverEmailButtonScreen
         }
         
         
+        public func editionButtonrecover(){ // se o campo estiver vazio faça, se nao, faça
+            if screen?.emailCreate.text?.isEmpty == false && screen?.passwordCreate.text?.isEmpty == false{
+                screen?.recoverEmailButton.setTitleColor(.black, for: .normal)
+                screen?.recoverEmailButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+                screen?.recoverEmailButton.isEnabled = true
+                }
+        else {
+            screen?.recoverEmailButton.setTitleColor(.systemGray, for: .normal)
+            screen?.recoverEmailButton.isEnabled = false }
+            // configuracao do Alert na autentificacao
+            self.alert?.getAlert(titulo: "Atenção", mensagem: "Preencha os dados corretamente")
+                            
+        // gerador de advertencia visual, caso algum campo fique vazio
+            if screen?.emailCreate.text?.isEmpty == true {
+                screen?.emailCreate.layer.borderColor = UIColor.red.cgColor
+                screen?.emailCreate.layer.borderWidth = 1
+            }
+            if screen?.passwordCreate.text?.isEmpty == true{
+                screen?.passwordCreate.layer.borderColor = UIColor.red.cgColor
+                screen?.passwordCreate.layer.borderWidth = 1
+            }
+    }
         
         
         // extensao ao protocol
@@ -86,7 +110,8 @@ class RecoverVC: UIViewController, UITextFieldDelegate, recoverEmailButtonScreen
         
         func textFieldDidEndEditing(_ textField: UITextField) {
             print(#function)
-            screen?.editionButtonrecover() // validacao do campo
+            editionButtonrecover() // validacao do campo
+            
         }
         
         func textFieldShouldReturn(_ textField: UITextField) -> Bool {

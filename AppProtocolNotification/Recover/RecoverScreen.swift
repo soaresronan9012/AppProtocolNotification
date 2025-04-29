@@ -101,27 +101,6 @@ class RecoverScreen: UIView {
         passwordCreate.delegate = delegate
         }
     
-    public func editionButtonrecover(){ // se o campo estiver vazio faça, se nao, faça
-        if emailCreate.text?.isEmpty == false && passwordCreate.text?.isEmpty == false{
-            recoverEmailButton.setTitleColor(.black, for: .normal)
-            recoverEmailButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-            recoverEmailButton.isEnabled = true
-                }
-        else {
-            recoverEmailButton.setTitleColor(.systemGray, for: .normal)
-            recoverEmailButton.isEnabled = false }
-        
-        // gerador de advertencia visual, caso algum campo fique vazio
-        if emailCreate.text?.isEmpty == true {
-            emailCreate.layer.borderColor = UIColor.red.cgColor
-            emailCreate.layer.borderWidth = 1
-            }
-        if passwordCreate.text?.isEmpty == true{
-            passwordCreate.layer.borderColor = UIColor.red.cgColor
-            passwordCreate.layer.borderWidth = 1
-            }
-    }
-    
     
     lazy var labelLogo : UILabel = {
         let label = UILabel()
