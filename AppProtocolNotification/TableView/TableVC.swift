@@ -12,12 +12,12 @@ class TableVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     // funcoes do tipo da assinatura do protocolo tableview
     // funcao do numero de linhas
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5 // 5 linhas nessa tabela
+        return 8 // 5 linhas nessa tabela
     }
     
     // funcao dos dados desta tabela
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let color : [UIColor] = [.orange,.red,.purple,.brown,.orange]  // um array de cores para ilustrar a tabela
+        let color : [UIColor] = [.orange,.red,.purple,.brown,.orange, .red, .purple, .brown]  // um array de cores para ilustrar a tabela
         let cell : UITableViewCell = UITableViewCell()  // var do tipo celula da tabela
         cell.backgroundColor = color[indexPath.row] // as cores das celulas, irao condizer com o array de cores
         return cell
