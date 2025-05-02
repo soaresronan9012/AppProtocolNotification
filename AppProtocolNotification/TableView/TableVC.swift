@@ -9,30 +9,19 @@ import UIKit
 
 class TableVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    // funcoes do tipo da assinatura do protocolo tableview
-    // funcao do numero de linhas
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8 // 5 linhas nessa tabela
-    }
-    
-    // funcao dos dados desta tabela
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let color : [UIColor] = [.orange,.red,.purple,.brown,.orange, .red, .purple, .brown]  // um array de cores para ilustrar a tabela
-        let cell : UITableViewCell = UITableViewCell()  // var do tipo celula da tabela
-        cell.backgroundColor = color[indexPath.row] // as cores das celulas, irao condizer com o array de cores
-        return cell
-    }
-    
-    // ambas funcoes acima sao padrao do sistema e precisam ser implementadas
-    
-   
     var screen : TableScreen?
+    // array do tipo dataUser
+    var data: [DataUser] = [  // array do tipo da struct
+        DataUser(name: "first gen", nameImage: "icons8-computador-100" ),
+        DataUser(name: "second gen", nameImage: "icons8-monitor-100"),
+        DataUser(name: "thirty gen", nameImage: "icons8-mac-pro-100"),
+        DataUser(name: "new gen", nameImage: "icons8-pro-display-xdr-lado-traseiro-100")    ]
+    
     
     override func loadView() {
         screen = TableScreen()
         view = screen
-        
-    }
+        }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +30,32 @@ class TableVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         // Do any additional setup after loading the view.
     }
     
+    
+    
+    
+    // funcoes do tipo da assinatura do protocolo tableview
+    // funcao do numero de linhas
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data.count // itera sobre o array do tipo struct
+    }
+    
+    // funcao dos dados desta tabela
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    // cria uma var do tipo da cell, passa seu identifier, confere se o tipo é o mesmo com as!
+        let cell:firstCellTableViewCell = tableView.dequeueReusableCell(withIdentifier: firstCellTableViewCell.identifier, for: indexPath) as? firstCellTableViewCell ?? firstCellTableViewCell()
+    // pega o metodo da cell e passa o array criado aqui na table e itera no mesmo
+        cell.configure(data: data[indexPath.row])
+        return cell
+    }
+    
+    // metodo da tableView que da espacamento entre linhas
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
+    
+    
+    // ambas funcoes acima sao padrao do sistema e precisam ser implementadas
+    
    
-
+    
 }

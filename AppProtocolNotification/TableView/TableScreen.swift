@@ -12,6 +12,9 @@ class TableScreen: UIView {
     lazy var tableView: UITableView = { // elemento do tioi tableview
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        //class da celula e seu identifier
+        // adiciona a cell na tableview
+        tableView.register(firstCellTableViewCell.self, forCellReuseIdentifier: firstCellTableViewCell.identifier)
         backgroundColor = .white
         return tableView
     }()
