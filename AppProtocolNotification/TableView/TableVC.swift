@@ -21,12 +21,14 @@ class TableVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     override func loadView() {
         screen = TableScreen()
         view = screen
-        }
+        view.backgroundColor = .systemGray4
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         screen?.configtableviewDelegateAndDataSource(delegate: self, dataSource: self) // assinatura do delegate
-
+        overrideUserInterfaceStyle = .light
+        
         // Do any additional setup after loading the view.
     }
     

@@ -15,7 +15,7 @@ class TableScreen: UIView {
         //class da celula e seu identifier
         // adiciona a cell na tableview
         tableView.register(firstCellTableViewCell.self, forCellReuseIdentifier: firstCellTableViewCell.identifier)
-        backgroundColor = .white
+        backgroundColor = .systemGray4
         return tableView
     }()
 
