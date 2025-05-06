@@ -15,7 +15,9 @@ class TableVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         DataUser(name: "first gen", nameImage: "icons8-computador-100" ),
         DataUser(name: "second gen", nameImage: "icons8-monitor-100"),
         DataUser(name: "thirty gen", nameImage: "icons8-mac-pro-100"),
-        DataUser(name: "new gen", nameImage: "icons8-pro-display-xdr-lado-traseiro-100")    ]
+        DataUser(name: "new gen", nameImage: "icons8-pro-display-xdr-lado-traseiro-100"),
+        DataUser(name: "compact gen", nameImage: "icons8-mac-mini-100")
+    ]
     
     
     override func loadView() {

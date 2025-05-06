@@ -9,7 +9,7 @@ import UIKit
 
 class TableScreen: UIView {
     
-    lazy var tableView: UITableView = { // elemento do tioi tableview
+    lazy var tableView: UITableView = { // elemento do tipo tableview
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         //class da celula e seu identifier
