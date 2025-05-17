@@ -18,7 +18,8 @@ class TableVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         DataUser(name: "new gen", nameImage: "icons8-pro-display-xdr-lado-traseiro-100"),
         DataUser(name: "compact gen", nameImage: "icons8-mac-mini-100"),
         DataUser(name: "portatil", nameImage: "icons8-macbook-100"),
-        DataUser(name: "old", nameImage: "icons8-mac-feliz-100" )
+        DataUser(name: "old", nameImage: "icons8-mac-feliz-100" ),
+        DataUser(name: "Settings", nameImage: "icons8-configurações-do-imac-100")
     ]
     
     
