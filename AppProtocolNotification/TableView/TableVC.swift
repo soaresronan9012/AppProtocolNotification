@@ -19,7 +19,8 @@ class TableVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         DataUser(name: "compact gen", nameImage: "icons8-mac-mini-100"),
         DataUser(name: "portatil", nameImage: "icons8-macbook-100"),
         DataUser(name: "old", nameImage: "icons8-mac-feliz-100" ),
-        DataUser(name: "Settings", nameImage: "icons8-configurações-do-imac-100")
+        DataUser(name: "Settings", nameImage: "icons8-configurações-do-imac-100"),
+        DataUser(name:"TvOS", nameImage: "icons8-apple-tv-100")
     ]
     
     
@@ -32,7 +33,7 @@ class TableVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         screen?.configtableviewDelegateAndDataSource(delegate: self, dataSource: self) // assinatura do delegate
-        overrideUserInterfaceStyle = .light
+        overrideUserInterfaceStyle = .light // força o tema
         
         // Do any additional setup after loading the view.
     }
@@ -41,6 +42,7 @@ class TableVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
     // funcoes do tipo da assinatura do protocolo tableview
+    
     // funcao do numero de linhas
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count // itera sobre o array do tipo struct
