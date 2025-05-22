@@ -10,7 +10,7 @@ import UIKit
 class firstCellTableViewCell: UITableViewCell {
 
     // Identificador reutilizável da célula
-        static let identifier = "UserCell"
+        static let identifier = "firstCellTableViewCell"
 
         // Label para exibir o nome do usuário
         private let nameLabel: UILabel = {
