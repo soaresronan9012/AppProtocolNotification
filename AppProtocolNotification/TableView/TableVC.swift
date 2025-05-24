@@ -20,7 +20,8 @@ class TableVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         DataUser(name: "portatil", nameImage: "icons8-macbook-100"),
         DataUser(name: "old", nameImage: "icons8-mac-feliz-100" ),
         DataUser(name: "Settings", nameImage: "icons8-configurações-do-imac-100"),
-        DataUser(name:"TvOS", nameImage: "icons8-apple-tv-100")
+        DataUser(name:"TvOS", nameImage: "icons8-apple-tv-100"),
+        DataUser(name: "AppleTV", nameImage: "icons8-apple-tv-100 copy")
     ]
     
     
