@@ -35,6 +35,11 @@ class firstCellTableViewCell: UITableViewCell {
             contentView.addSubview(nameLabel) // pois esta dentro do campo, precisa ser content
             contentView.addSubview(imagemCell)
             setupConstraints()
+            // backgroundColor = .orange      customiza cor das células
+            let selectedBGView = UIView()  // customiza cor da célula AO SER CLICADA
+            selectedBGView.backgroundColor = .systemGray5
+            selectedBackgroundView = selectedBGView
+
         }
 
         // Inicializador requerido para uso com storyboard (não utilizado aqui)
