@@ -65,6 +65,29 @@ class TableVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // ambas funcoes acima sao padrao do sistema e precisam ser implementadas
     
-   
     
+    // métodos para navegacao ao clicar nas celulas
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            // Ação para a primeira célula: navegação para outra tela
+            let detailVC = FirstCellVC()
+            detailVC.modalPresentationStyle = .pageSheet
+            present(detailVC, animated: true ,completion: nil)
+
+        case 1:
+            // Ação para a segunda célula: exibe um alerta
+            let alert = UIAlertController(title: "Alerta", message: "Você tocou na segunda célula!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alert, animated: true)
+
+        default:
+            // Ação para as outras células
+            print("Você tocou na célula de índice \(indexPath.row)")
+        }
+
+        // Deseleciona a célula com animação
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+
 }
