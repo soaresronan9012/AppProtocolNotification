@@ -74,8 +74,12 @@ class TableVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             let detailVC = FirstCellVC()
             detailVC.modalPresentationStyle = .pageSheet
             present(detailVC, animated: true ,completion: nil)
-
+            
         case 1:
+            let detailVC = SecondCellVC()
+            detailVC.modalPresentationStyle = .pageSheet
+            present(detailVC, animated: true ,completion: nil)
+        case 2:
             // Ação para a segunda célula: exibe um alerta
             let alert = UIAlertController(title: "Alerta", message: "Você tocou na segunda célula!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default))
