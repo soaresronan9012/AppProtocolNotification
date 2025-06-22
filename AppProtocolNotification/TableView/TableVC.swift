@@ -81,7 +81,7 @@ class TableVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             present(detailVC, animated: true ,completion: nil)
         case 2:
             // Ação para a segunda célula: exibe um alerta
-            let alert = UIAlertController(title: "Alerta", message: "Você tocou na segunda célula!", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Alerta", message: "Você tocou na segunda célula sem dados!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default))
             present(alert, animated: true)
 
