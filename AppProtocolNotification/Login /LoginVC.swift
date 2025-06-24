@@ -25,7 +25,7 @@ class LoginVC: UIViewController, loginViewProtocol {
         screen?.configDelegateTextField(delegate: self)  // invoca metodo que habilita esse delegate
         screen?.delegateRecoverButtonFunc(delegate: self) // metodo que habilita delegate do recoverpassword
         alert = Alert(controller: self) // instancia da class ALERT
-        overrideUserInterfaceStyle = .light
+        overrideUserInterfaceStyle = .light // forca padrao claro
     }
     
     
