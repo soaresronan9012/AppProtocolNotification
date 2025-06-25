@@ -14,7 +14,7 @@ class TableScreen: UIView {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         //class da celula e seu identifier
         // adiciona a cell na tableview
-        tableView.register(firstCellTableViewCell.self, forCellReuseIdentifier: firstCellTableViewCell.identifier)
+        tableView.register(firstCellTableViewCell.self, forCellReuseIdentifier: firstCellTableViewCell.identifier) // tipo de cell e sua var static
         backgroundColor = .systemGray4
         return tableView
     }()
@@ -28,6 +28,7 @@ class TableScreen: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     // metodo padrao do tableDelegate
     // delega acoes para quem asssinar, a ViewController
     func configtableviewDelegateAndDataSource(delegate: UITableViewDelegate,dataSource: UITableViewDataSource){

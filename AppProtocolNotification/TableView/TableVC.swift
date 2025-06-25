@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+                               // 2 delegates referente a TableView
 class TableVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var screen : TableScreen?
@@ -35,13 +35,12 @@ class TableVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         screen?.configtableviewDelegateAndDataSource(delegate: self, dataSource: self) // assinatura do delegate
         overrideUserInterfaceStyle = .light // força o tema
         
-        // Do any additional setup after loading the view.
     }
     
     
     
     
-    // funcoes do tipo da assinatura do protocolo tableview
+    // funcoes do tipo da assinatura do protocolo tableview, igual textfield
     
     // funcao do numero de linhas
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -93,6 +92,10 @@ class TableVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             present(alert, animated: true)
 
         default:
+            let alert = UIAlertController(title: "Alerta", message: "Você tocou na \(indexPath.row)ª célula sem dados!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alert, animated: true)
+
             // Ação para as outras células
             print("Você tocou na célula de índice \(indexPath.row)")
         }
