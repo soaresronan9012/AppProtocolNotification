@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "imac-apple-tela-retina-24-4-5k-chip-m4-cpu-8-nucleos-gpu-8-nucleos-16gb-ram-256gb-ssd-azul-mwuf3bz-a_1732020819_gg-2.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

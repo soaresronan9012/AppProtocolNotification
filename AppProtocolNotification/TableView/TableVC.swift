@@ -86,6 +86,12 @@ class TableVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             
             
         case 3:
+            let detailVC = FourtyCellVC()
+            detailVC.modalPresentationStyle = .pageSheet
+            present(detailVC, animated: true ,completion: nil)
+            
+            
+        case 4:
             // Ação para a segunda célula: exibe um alerta
             let alert = UIAlertController(title: "Alerta", message: "Você tocou na segunda célula sem dados!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default))
