@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Restored-Apple-iPhone-X-Refurbished-Smartphone-256GB-Fully-Unlocked-Silver-Color-Refurbished_79e69493-85db-4c38-8406-60da206bba5b.7658f71f88486ebe02ff324f56f0bbbe.jpeg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

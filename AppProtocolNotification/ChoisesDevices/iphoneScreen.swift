@@ -38,7 +38,7 @@ class iphoneScreen: UIView {
     lazy var iphonebuttonReturntButton : UIButton = {
         let bt = UIButton()
         bt.translatesAutoresizingMaskIntoConstraints = false
-        bt.setTitle("Return", for: .normal) // texto do botao
+        bt.setTitle("gens", for: .normal) // texto do botao
         bt.titleLabel?.font = UIFont.systemFont(ofSize: 18)// tamanho da fonte
         bt.setTitleColor(.black, for: .normal)
         bt.backgroundColor = UIColor.systemGray4 // cor com transparencia
