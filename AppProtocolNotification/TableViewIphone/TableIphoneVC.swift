@@ -59,6 +59,25 @@ class TableIphoneVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
                  }
-
+    
+    // métodos para navegacao ao clicar nas celulas
+   //  toda vez que criarmos uma celula deveremos colocar um case para ela no switch
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            // Ação para a primeira célula: navegação para outra tela
+            let detailVC = Iphone3VC()
+            detailVC.modalPresentationStyle = .pageSheet
+            present(detailVC, animated: true ,completion: nil)
+            
+        default:
+            let alert = UIAlertController(title: "Alerta", message: "Você tocou na \(indexPath.row + 1)ª célula sem dados!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alert, animated: true)
+        }
+        
+        // Deseleciona a célula com animação
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
    
 }
