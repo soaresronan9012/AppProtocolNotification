@@ -76,6 +76,11 @@ class TableIphoneVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             detailVC.modalPresentationStyle = .pageSheet
             present(detailVC, animated: true ,completion: nil)
             
+        case 2:
+            // Ação para a primeira célula: navegação para outra tela
+            let detailVC = IphoneXVC()
+            detailVC.modalPresentationStyle = .pageSheet
+            present(detailVC, animated: true ,completion: nil)
             
         default:
             let alert = UIAlertController(title: "Alerta", message: "Você tocou na \(indexPath.row + 1)ª célula sem dados!", preferredStyle: .alert)
