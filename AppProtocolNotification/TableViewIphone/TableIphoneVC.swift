@@ -18,8 +18,8 @@ class TableIphoneVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         DataUser(name: "iphone X", nameImage: "iphone-phone-smartphone-svgrepo-com"),
         //DataUser(name: "iphone SE", nameImage: "icons8-mac-mini-100"),
         DataUser(name: "iphone 13", nameImage: "icons8-iphone13-100"),
-        DataUser(name: "iphone 15", nameImage: "iphone-svgrepo-com-4"),
-        DataUser(name:"iphone 17", nameImage: "icons8-apple-tv-100"),
+        DataUser(name: "iphone 17", nameImage: "iphone-svgrepo-com-4"),
+        DataUser(name:"throws", nameImage: "icons8-apple-tv-100"),
         //DataUser(name: "AppleTV", nameImage: "icons8-apple-tv-100 copy")
     ]
     
@@ -79,6 +79,18 @@ class TableIphoneVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         case 2:
             // Ação para a primeira célula: navegação para outra tela
             let detailVC = IphoneXVC()
+            detailVC.modalPresentationStyle = .pageSheet
+            present(detailVC, animated: true ,completion: nil)
+            
+        case 3:
+            // Ação para a primeira célula: navegação para outra tela
+            let detailVC = Iphone13VC()
+            detailVC.modalPresentationStyle = .pageSheet
+            present(detailVC, animated: true ,completion: nil)
+            
+        case 4:
+            // Ação para a primeira célula: navegação para outra tela
+            let detailVC = Iphone17ScreenVC()
             detailVC.modalPresentationStyle = .pageSheet
             present(detailVC, animated: true ,completion: nil)
             
