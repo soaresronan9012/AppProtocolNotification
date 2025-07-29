@@ -96,8 +96,8 @@ class TableIphoneVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             
             
         case 5:
-            // Ação para a primeira célula: navegação para outra tela
-            let detailVC = Iphone17ScreenVC()
+            // escolhe ultima celula com linha do tempo dos iphones
+            let detailVC = ThrowsVC()
             detailVC.modalPresentationStyle = .pageSheet
             present(detailVC, animated: true ,completion: nil)
             
