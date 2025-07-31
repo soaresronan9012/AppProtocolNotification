@@ -67,7 +67,7 @@ class TableVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // métodos para navegacao ao clicar nas celulas
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.row {
+        switch indexPath.row { // indexPath.row  é cada linha da tableview
         case 0:
             // Ação para a primeira célula: navegação para outra tela
             let detailVC = FirstCellVC()
