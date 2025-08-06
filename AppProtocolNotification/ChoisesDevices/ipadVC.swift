@@ -24,8 +24,10 @@ class ipadVC: UIViewController, ipadbookScreenButtonProtocol {
     }
     
     func tappedReturnButtonProtocolipad() {
-        dismiss( animated: true, completion: nil)
-        
+        // invocando tableView
+        let table = TableViewIpadVC()
+          table.modalPresentationStyle = .pageSheet
+        present(table, animated: true ,completion: nil)
     }
     
     
