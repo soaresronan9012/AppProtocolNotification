@@ -12,7 +12,7 @@ class TableViewIpadVC: UIViewController, UITableViewDelegate, UITableViewDataSou
 
     // array do tipo dataUser
     var data: [DataUser] = [  // array do tipo da struct
-        DataUser(name: "iPad (primeira geração)", nameImage: "ipad-reverse-svgrepo-com" ),
+        DataUser(name: "iPad (primeiro)", nameImage: "ipad-reverse-svgrepo-com" ),
         DataUser(name: "iPad Pro (1ª geração)", nameImage: "ipad-pro-svgrepo-com"),
         //DataUser(name: "iphone 7", nameImage: " iphone-svgrepo-com-3"),
         DataUser(name: "iPad Mini (5ª geração)", nameImage: "ipad-svgrepo-com-5"),
@@ -73,7 +73,7 @@ class TableViewIpadVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             
         case 1:
             // Ação para a primeira célula: navegação para outra tela
-            let detailVC = Iphone5VC()
+            let detailVC = IpadSecondScreenVC()
             detailVC.modalPresentationStyle = .pageSheet
             present(detailVC, animated: true ,completion: nil)
             
