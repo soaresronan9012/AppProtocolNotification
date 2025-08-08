@@ -79,7 +79,7 @@ class TableViewIpadVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             
         case 2:
             // Ação para a primeira célula: navegação para outra tela
-            let detailVC = IphoneXVC()
+            let detailVC = IpadThirtyScreenVC()
             detailVC.modalPresentationStyle = .pageSheet
             present(detailVC, animated: true ,completion: nil)
             
