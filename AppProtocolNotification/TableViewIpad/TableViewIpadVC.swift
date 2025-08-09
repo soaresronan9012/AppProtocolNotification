@@ -85,22 +85,22 @@ class TableViewIpadVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             
         case 3:
             // Ação para a primeira célula: navegação para outra tela
-            let detailVC = Iphone13VC()
+            let detailVC = ThrowsIpadVC()
             detailVC.modalPresentationStyle = .pageSheet
             present(detailVC, animated: true ,completion: nil)
             
-        case 4:
+//        case 4:
             // Ação para a primeira célula: navegação para outra tela
-            let detailVC = Iphone17ScreenVC()
-            detailVC.modalPresentationStyle = .pageSheet
-            present(detailVC, animated: true ,completion: nil)
+//            let detailVC = Iphone17ScreenVC()
+//            detailVC.modalPresentationStyle = .pageSheet
+//            present(detailVC, animated: true ,completion: nil)
             
             
-        case 5:
+//        case 5:
             // escolhe ultima celula com linha do tempo dos iphones
-            let detailVC = ThrowsVC()
+//            let detailVC = ThrowsVC()
             detailVC.modalPresentationStyle = .pageSheet
-            present(detailVC, animated: true ,completion: nil)
+//            present(detailVC, animated: true ,completion: nil)
             
         default:
             let alert = UIAlertController(title: "Alerta", message: "Você tocou na \(indexPath.row + 1)ª célula sem dados!", preferredStyle: .alert)
