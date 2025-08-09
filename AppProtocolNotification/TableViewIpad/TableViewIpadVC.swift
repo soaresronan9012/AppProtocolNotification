@@ -99,7 +99,7 @@ class TableViewIpadVC: UIViewController, UITableViewDelegate, UITableViewDataSou
 //        case 5:
             // escolhe ultima celula com linha do tempo dos iphones
 //            let detailVC = ThrowsVC()
-            detailVC.modalPresentationStyle = .pageSheet
+            //detailVC.modalPresentationStyle = .pageSheet
 //            present(detailVC, animated: true ,completion: nil)
             
         default:

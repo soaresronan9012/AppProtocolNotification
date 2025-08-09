@@ -44,20 +44,6 @@
 			);
 			target = 4A2030722CC08C3A008751B1 /* AppProtocolNotification */;
 		};
-		4AD8BEB92D977B6000F64350 /* Exceptions for "AppProtocolNotification" folder in "AppProtocolNotificationTests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"GoogleService-Info.plist",
-			);
-			target = 4A2030882CC08C3C008751B1 /* AppProtocolNotificationTests */;
-		};
-		4AD8BEBA2D977B6000F64350 /* Exceptions for "AppProtocolNotification" folder in "AppProtocolNotificationUITests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"GoogleService-Info.plist",
-			);
-			target = 4A2030922CC08C3C008751B1 /* AppProtocolNotificationUITests */;
-		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -65,8 +51,6 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				4AD52F262D1E276B001FD0B5 /* Exceptions for "AppProtocolNotification" folder in "AppProtocolNotification" target */,
-				4AD8BEB92D977B6000F64350 /* Exceptions for "AppProtocolNotification" folder in "AppProtocolNotificationTests" target */,
-				4AD8BEBA2D977B6000F64350 /* Exceptions for "AppProtocolNotification" folder in "AppProtocolNotificationUITests" target */,
 			);
 			path = AppProtocolNotification;
 			sourceTree = "<group>";

@@ -51,7 +51,7 @@ class ThrowsIpadScreen: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .systemGray4
+        backgroundColor = .white
         setupViews()
     }
 
