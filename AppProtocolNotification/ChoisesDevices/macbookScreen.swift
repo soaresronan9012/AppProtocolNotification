@@ -44,7 +44,7 @@ class macbookScreen: UIView {
     lazy var buttonReturntButton : UIButton = {
         let bt = UIButton()
         bt.translatesAutoresizingMaskIntoConstraints = false
-        bt.setTitle("return", for: .normal) // texto do botao
+        bt.setTitle("gens", for: .normal) // texto do botao
         bt.titleLabel?.font = UIFont.systemFont(ofSize: 18)// tamanho da fonte
         bt.setTitleColor(.black, for: .normal)
         bt.backgroundColor = UIColor.systemGray4 // cor com transparencia
