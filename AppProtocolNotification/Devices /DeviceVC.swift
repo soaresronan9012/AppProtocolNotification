@@ -27,7 +27,7 @@ class DeviceVC: UIViewController, macbookProtocol, imacbookProtocol, iphoneProto
     
     
     func macbookTappedProtocol(){
-        let macbook = macbookVC() // instancia a class alvo
+        let macbook = TableViewMacVC() // instancia a class alvo
         macbook.modalPresentationStyle = .pageSheet // customizacao do tamanho de tela
         present(macbook, animated: true ,completion: nil) // invoca o método
         
@@ -37,20 +37,20 @@ class DeviceVC: UIViewController, macbookProtocol, imacbookProtocol, iphoneProto
     }
     
     func imacbookTappedProtocol() {
-        let imac = imacVC()
+        let imac = TableVC()
         imac.modalPresentationStyle = .pageSheet
         present(imac, animated: true ,completion: nil)
         
     }
     
     func iphoneTappedProtocol() {
-        let iphone = iphoneVC()
+        let iphone = TableIphoneVC()
         iphone.modalPresentationStyle = .pageSheet
         present(iphone, animated: true ,completion: nil)
     }
     
     func ipadTappedProtocol() {
-        let ipad = ipadVC()
+        let ipad = TableViewIpadVC()
         ipad.modalPresentationStyle = .pageSheet
         present(ipad, animated: true ,completion: nil)
     }
