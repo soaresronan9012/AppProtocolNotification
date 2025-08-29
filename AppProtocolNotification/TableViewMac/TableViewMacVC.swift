@@ -13,7 +13,7 @@ class TableViewMacVC: UIViewController,  UITableViewDelegate, UITableViewDataSou
     var data: [DataUser] = [  // array do tipo da struct
         DataUser(name: "macbook Air", nameImage: "macbook-pro-svgrepo-com" ),
         DataUser(name: "macbook Pro", nameImage: "macbook-svgrepo-com-2"),
-        //DataUser(name: "iphone 7", nameImage: " iphone-svgrepo-com-3"),
+        DataUser(name: "Macbook M1", nameImage: "macbook-pro-svgrepo-com"),
         DataUser(name: "Macbook M4", nameImage: "macbook-pro-svgrepo-com"),
         //DataUser(name: "iphone SE", nameImage: "icons8-mac-mini-100"),
 //        DataUser(name: "iphone 13", nameImage: "icons8-iphone13-100"),
