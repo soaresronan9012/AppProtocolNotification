@@ -83,15 +83,15 @@ class TableViewMacVC: UIViewController,  UITableViewDelegate, UITableViewDataSou
             
         case 3:
             // Ação para a primeira célula: navegação para outra tela
-            let detailVC = ThrowsMacbookVC()
+            let detailVC = MacbookProM4VC()
             detailVC.modalPresentationStyle = .pageSheet
             present(detailVC, animated: true ,completion: nil)
             
-//        case 4:
+        case 4:
             // Ação para a primeira célula: navegação para outra tela
-//            let detailVC = Iphone17ScreenVC()
-//            detailVC.modalPresentationStyle = .pageSheet
-//            present(detailVC, animated: true ,completion: nil)
+            let detailVC = ThrowsMacbookVC()
+           detailVC.modalPresentationStyle = .pageSheet
+           present(detailVC, animated: true ,completion: nil)
             
             
 //        case 5:
