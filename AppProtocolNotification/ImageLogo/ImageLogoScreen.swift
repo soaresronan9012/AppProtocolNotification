@@ -35,7 +35,7 @@ class ImageLogoScreen: UIView {
         parklabel.text = "In the middle of Silicon Valley, the cradle of technological innovation, stands a structure that looks like something out of a science fiction film: Apple Park. Opened in 2017 in Cupertino, California."
         parklabel.textAlignment = .center  // Centraliza o texto no label
         parklabel.font = UIFont.systemFont(ofSize: 24, weight: .bold)  // Define a fonte e o tamanho
-        parklabel.textColor = .black // Cor do texto
+        parklabel.textColor = .systemGray // Cor do texto
         parklabel.numberOfLines = 0  // habilita varias linhas
         return parklabel
         }()
@@ -47,7 +47,7 @@ class ImageLogoScreen: UIView {
         settingslabel.textAlignment = .center
         settingslabel.textAlignment = .center  // Centraliza o texto no label
         settingslabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)  // Define a fonte e o tamanho
-        settingslabel.textColor = .orange // Cor do texto
+        settingslabel.textColor = UIColor.orange.withAlphaComponent(0.7) // Cor do texto
         settingslabel.numberOfLines = 0  // habilita varias linhas
         settingslabel.isUserInteractionEnabled = true // interacao com o elemento via touch
         return settingslabel
